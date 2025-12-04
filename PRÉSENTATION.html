@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#2c3e50">
+    <title>Mes Projets ESODI - Portefeuille Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --education-color: #1abc9c;
+            --housing-color: #9b59b6;
+            --commerce-color: #e74c3c;
+            --finance-color: #f39c12;
+            --light-color: #f9f9f9;
+            --dark-color: #333;
+            --gray-color: #ecf0f1;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+
+        /* Header optimisé */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 12px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Navigation adaptative */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            padding: 0 4px;
+        }
+
+        .category-btn {
+            background-color: white;
+            border: 2px solid #e0e0e0;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            min-height: 48px;
+            flex: 1;
+            min-width: 140px;
+            max-width: 180px;
+            justify-content: center;
+        }
+
+        .category-btn:hover, .category-btn:focus {
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .category-btn.active {
+            color: white;
+            border-color: transparent;
+        }
+
+        .education-btn.active {
+            background-color: var(--education-color);
+        }
+
+        .housing-btn.active {
+            background-color: var(--housing-color);
+        }
+
+        .commerce-btn.active {
+            background-color: var(--commerce-color);
+        }
+
+        .finance-btn.active {
+            background-color: var(--finance-color);
+        }
+
+        /* Sections catégories */
+        .category-section {
+            display: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .category-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+            padding-bottom: 10px;
+            border-bottom: 3px solid;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .education-title {
+            color: var(--education-color);
+            border-color: var(--education-color);
+        }
+
+        .housing-title {
+            color: var(--housing-color);
+            border-color: var(--housing-color);
+        }
+
+        .commerce-title {
+            color: var(--commerce-color);
+            border-color: var(--commerce-color);
+        }
+
+        .finance-title {
+            color: var(--finance-color);
+            border-color: var(--finance-color);
+        }
+
+        .category-icon {
+            font-size: 1.6rem;
+        }
+
+        /* Grid de projets */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-number {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .project-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1rem;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .project-link:hover, .project-link:focus {
+            background-color: var(--primary-color);
+            transform: scale(1.02);
+            outline: none;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.8rem 0;
+            margin-top: 2.5rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .footer-content p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 1.2rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* ========== RESPONSIVE ADAPTATIONS ========== */
+        
+        /* Tablettes moyennes (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 18px;
+            }
+            
+            .category-btn {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+                min-width: 130px;
+            }
+        }
+        
+        /* Tablettes petites (600px - 768px) */
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+            
+            header {
+                padding: 1.2rem 0;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .category-nav {
+                gap: 6px;
+                margin-bottom: 1.2rem;
+            }
+            
+            .category-btn {
+                padding: 10px 12px;
+                font-size: 0.88rem;
+                min-width: 120px;
+                max-width: 160px;
+                min-height: 44px;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+                margin-bottom: 1.1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 16px;
+            }
+            
+            .project-content {
+                padding: 18px;
+            }
+            
+            .project-title {
+                font-size: 1.2rem;
+            }
+            
+            .project-description {
+                font-size: 0.92rem;
+            }
+            
+            .project-link {
+                padding: 12px 16px;
+                font-size: 0.95rem;
+                min-height: 44px;
+            }
+        }
+        
+        /* Mobiles paysage (480px - 600px) */
+        @media (max-width: 600px) {
+            html {
+                font-size: 14.5px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .category-btn {
+                min-width: 110px;
+                max-width: 140px;
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
+            
+            .category-nav {
+                justify-content: space-around;
+            }
+            
+            .project-card {
+                border-radius: 10px;
+            }
+        }
+        
+        /* Mobiles portrait (360px - 480px) */
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 0 14px;
+            }
+            
+            header {
+                padding: 1rem 0;
+                margin-bottom: 1.2rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+                padding: 0 8px;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+            
+            .category-nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .category-btn {
+                width: calc(50% - 8px);
+                max-width: none;
+                min-width: auto;
+                padding: 12px 8px;
+                font-size: 0.85rem;
+                justify-content: center;
+                border-radius: 12px;
+                min-height: 42px;
+            }
+            
+            .category-title {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .project-card {
+                border-radius: 12px;
+            }
+            
+            .project-content {
+                padding: 18px;
+            }
+            
+            .project-title {
+                font-size: 1.2rem;
+                padding-right: 30px;
+            }
+            
+            .project-description {
+                font-size: 0.9rem;
+            }
+            
+            .project-link {
+                padding: 14px 18px;
+                font-size: 0.95rem;
+                border-radius: 10px;
+            }
+            
+            .footer-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+        
+        /* Petits mobiles (< 360px) */
+        @media (max-width: 360px) {
+            html {
+                font-size: 13px;
+            }
+            
+            .container {
+                padding: 0 12px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .subtitle {
+                font-size: 0.85rem;
+            }
+            
+            .category-btn {
+                padding: 10px 6px;
+                font-size: 0.8rem;
+                width: calc(50% - 6px);
+                min-height: 40px;
+            }
+            
+            .category-title {
+                font-size: 1.2rem;
+            }
+            
+            .project-content {
+                padding: 16px;
+            }
+            
+            .project-title {
+                font-size: 1.15rem;
+            }
+            
+            .project-description {
+                font-size: 0.88rem;
+            }
+            
+            .project-link {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Mode sombre */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --light-color: #1a1a1a;
+                --dark-color: #f0f0f0;
+                --gray-color: #2d2d2d;
+                --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+            
+            body {
+                background-color: #121212;
+                color: var(--dark-color);
+            }
+            
+            .project-card {
+                background-color: #2a2a2a;
+                border-color: rgba(255,255,255,0.05);
+            }
+            
+            .project-title {
+                color: #f0f0f0;
+            }
+            
+            .project-description {
+                color: #aaa;
+            }
+            
+            .category-btn:not(.active) {
+                background-color: #2a2a2a;
+                color: #f0f0f0;
+                border-color: #444;
+            }
+        }
+        
+        /* Support tactile */
+        @media (hover: none) and (pointer: coarse) {
+            .project-card:hover {
+                transform: none;
+            }
+            
+            .category-btn:hover {
+                transform: none;
+            }
+            
+            .project-link:hover {
+                transform: none;
+            }
+            
+            .category-btn:active {
+                transform: scale(0.98);
+                transition: transform 0.1s;
+            }
+            
+            .project-link:active {
+                transform: scale(0.98);
+                transition: transform 0.1s;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <h1>Mes Projets ESODI</h1>
+            <p class="subtitle">Portefeuille de projets digitaux regroupés par catégories. Explorez les projets par domaine d'activité.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Navigation par catégories -->
+        <nav class="category-nav" aria-label="Navigation par catégories">
+            <button class="category-btn education-btn active" data-category="education" aria-label="Voir les projets éducation">
+                <i class="fas fa-graduation-cap"></i> <span>ÉDUCATION</span>
+            </button>
+            <button class="category-btn housing-btn" data-category="housing" aria-label="Voir les projets logement">
+                <i class="fas fa-home"></i> <span>LOGEMENT</span>
+            </button>
+            <button class="category-btn commerce-btn" data-category="commerce" aria-label="Voir les projets commerce">
+                <i class="fas fa-shopping-cart"></i> <span>COMMERCE</span>
+            </button>
+            <button class="category-btn finance-btn" data-category="finance" aria-label="Voir les projets finance">
+                <i class="fas fa-chart-line"></i> <span>FINANCE</span>
+            </button>
+        </nav>
+
+        <!-- Projets Éducation -->
+        <section id="education" class="category-section active" aria-label="Projets Éducation">
+            <h2 class="category-title education-title">
+                <i class="fas fa-graduation-cap category-icon"></i> <span>Projets Éducation</span>
+            </h2>
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <article class="project-card">
+                    <div class="project-number">1</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Projet Éducation 1</h3>
+                        <p class="project-description">Premier projet éducatif avec interface conviviale et fonctionnalités pédagogiques avancées.</p>
+                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P1.html" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 2 -->
+                <article class="project-card">
+                    <div class="project-number">2</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Projet Éducation 2</h3>
+                        <p class="project-description">Deuxième projet éducatif axé sur l'apprentissage interactif et les outils d'évaluation.</p>
+                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P2.html" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 3 -->
+                <article class="project-card">
+                    <div class="project-number">3</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Projet Éducation 3</h3>
+                        <p class="project-description">Troisième projet éducatif dédié à la gestion de contenu pédagogique en ligne.</p>
+                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P3.html" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 4 -->
+                <article class="project-card">
+                    <div class="project-number">4</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Répétitions et École en Ligne</h3>
+                        <p class="project-description">Plateforme complète pour les répétitions et l'enseignement en ligne avec suivi des progrès.</p>
+                        <a href="https://jeanskodoc.github.io/EPT/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 5 -->
+                <article class="project-card">
+                    <div class="project-number">5</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gestion Tableaux de Services</h3>
+                        <p class="project-description">Outil de gestion des emplois du temps et tableaux de services pour établissements éducatifs.</p>
+                        <a href="https://jeanskodoc.github.io/Emploi-du-temps-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 6 -->
+                <article class="project-card">
+                    <div class="project-number">6</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Modèle d'Enseignement</h3>
+                        <p class="project-description">Modèle pédagogique innovant avec outils de planification et de suivi pour enseignants.</p>
+                        <a href="https://jeanskodoc.github.io/ENSEIGNANT-MODEL/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 7 -->
+                <article class="project-card">
+                    <div class="project-number">7</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Tontine Équilibrée</h3>
+                        <p class="project-description">Système de gestion de tontine équitable pour les groupes d'épargne communautaire.</p>
+                        <a href="https://jeanskodoc.github.io/TONTINE/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 8 -->
+                <article class="project-card">
+                    <div class="project-number">8</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Librairie en Ligne</h3>
+                        <p class="project-description">Plateforme de distribution de livres électroniques avec système de recherche avancé.</p>
+                        <a href="https://jeanskodoc.github.io/EBOOK-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 9 -->
+                <article class="project-card">
+                    <div class="project-number">9</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gestion de Fiches de Leçons</h3>
+                        <p class="project-description">Application de gestion et de création de fiches de leçons pour enseignants.</p>
+                        <a href="https://jeanskodoc.github.io/ENS-R/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projets Logement -->
+        <section id="housing" class="category-section" aria-label="Projets Logement">
+            <h2 class="category-title housing-title">
+                <i class="fas fa-home category-icon"></i> <span>Projets Logement</span>
+            </h2>
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <article class="project-card">
+                    <div class="project-number">1</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gestion de Logements</h3>
+                        <p class="project-description">Système complet de gestion immobilière avec suivi des loyers, entretien et contrats.</p>
+                        <a href="https://jeanskodoc.github.io/RE-U-DE-LOYER/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projets Commerce -->
+        <section id="commerce" class="category-section" aria-label="Projets Commerce">
+            <h2 class="category-title commerce-title">
+                <i class="fas fa-shopping-cart category-icon"></i> <span>Projets Commerce</span>
+            </h2>
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <article class="project-card">
+                    <div class="project-number">1</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Vente en Ligne</h3>
+                        <p class="project-description">Plateforme e-commerce complète avec gestion des produits, panier et paiement.</p>
+                        <a href="https://jeanskodoc.github.io/E-Commerce-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 2 -->
+                <article class="project-card">
+                    <div class="project-number">2</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gestion de Boutique</h3>
+                        <p class="project-description">Solution de gestion d'inventaire et de ventes pour boutiques physiques et en ligne.</p>
+                        <a href="https://jeanskodoc.github.io/Ma-boutique-en-ligne-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 3 -->
+                <article class="project-card">
+                    <div class="project-number">3</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Transport-Command</h3>
+                        <p class="project-description">Système de gestion de commandes et de livraisons pour services de transport.</p>
+                        <a href="https://jeanskodoc.github.io/transport-Togo-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 4 -->
+                <article class="project-card">
+                    <div class="project-number">4</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Facture et Reçu Digitaux</h3>
+                        <p class="project-description">Génération et gestion de factures et reçus numériques avec suivi des paiements.</p>
+                        <a href="https://jeanskodoc.github.io/Factures-digitalis-es/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projets Finance -->
+        <section id="finance" class="category-section" aria-label="Projets Finance">
+            <h2 class="category-title finance-title">
+                <i class="fas fa-chart-line category-icon"></i> <span>Projets Finance</span>
+            </h2>
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <article class="project-card">
+                    <div class="project-number">1</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Portefeuille Virtuel</h3>
+                        <p class="project-description">Application de gestion financière personnelle avec suivi des dépenses et épargne.</p>
+                        <a href="https://jeanskodoc.github.io/-CONOMIE-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 2 -->
+                <article class="project-card">
+                    <div class="project-number">2</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Carte Virtuelle (Made in Togo)</h3>
+                        <p class="project-description">Solution de carte de paiement virtuelle sécurisée adaptée au marché togolais.</p>
+                        <a href="https://jeanskodoc.github.io/Carte-virtuelle-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+                
+                <!-- Projet 3 -->
+                <article class="project-card">
+                    <div class="project-number">3</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Suivi-Agent (CEET/TDE)</h3>
+                        <p class="project-description">Système de suivi et de gestion des agents pour institutions financières.</p>
+                        <a href="https://jeanskodoc.github.io/CEET-TDE/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <h3>Portefeuille de Projets Digitaux ESODI</h3>
+            <p>Une collection de solutions digitales innovantes pour l'éducation, le logement, le commerce et la finance.</p>
+            <div class="footer-links">
+                <a href="#" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="#" aria-label="À propos"><i class="fas fa-info-circle"></i> À propos</a>
+                <a href="#" aria-label="Développeur"><i class="fas fa-code"></i> Développeur</a>
+            </div>
+            <p>&copy; 2023 ESODI - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const categorySections = document.querySelectorAll('.category-section');
+            
+            // Fonction pour changer de catégorie
+            function switchCategory(categoryId) {
+                // Mettre à jour les boutons
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-category') === categoryId) {
+                        btn.classList.add('active');
+                        btn.setAttribute('aria-current', 'true');
+                    } else {
+                        btn.setAttribute('aria-current', 'false');
+                    }
+                });
+                
+                // Mettre à jour les sections
+                categorySections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === categoryId) {
+                        section.classList.add('active');
+                        // Défilement doux sur mobile
+                        if (window.innerWidth <= 768) {
+                            setTimeout(() => {
+                                window.scrollTo({
+                                    top: section.offsetTop - 100,
+                                    behavior: 'smooth'
+                                });
+                            }, 50);
+                        }
+                    }
+                });
+                
+                // Sauvegarder la catégorie active
+                try {
+                    localStorage.setItem('activeCategory', categoryId);
+                } catch(e) {
+                    console.log("LocalStorage non disponible");
+                }
+            }
+            
+            // Ajouter des écouteurs d'événements aux boutons
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const categoryId = this.getAttribute('data-category');
+                    switchCategory(categoryId);
+                });
+                
+                // Support clavier
+                button.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const categoryId = this.getAttribute('data-category');
+                        switchCategory(categoryId);
+                    }
+                });
+            });
+            
+            // Restaurer la catégorie active
+            let savedCategory = 'education';
+            try {
+                savedCategory = localStorage.getItem('activeCategory') || 'education';
+            } catch(e) {
+                savedCategory = 'education';
+            }
+            switchCategory(savedCategory);
+            
+            // Animation des cartes
+            const observerOptions = {
+                threshold: 0.05,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+                
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(card);
+                });
+            }
+            
+            // Support tactile amélioré
+            let touchStartY = 0;
+            document.addEventListener('touchstart', function(e) {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            // Prévenir le zoom sur iOS
+            document.addEventListener('touchmove', function(e) {
+                if (e.scale !== 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+            
+            // Focus visible pour l'accessibilité
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+            
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+        });
+    </script>
+</body>
+</html>
