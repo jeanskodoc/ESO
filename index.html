@@ -126,6 +126,59 @@
             overflow-x: hidden;
         }
 
+        /* Bouton Retour - Position fixe en haut à gauche */
+        .back-button {
+            position: fixed;
+            top: max(1rem, var(--safe-area-inset-top));
+            left: max(1rem, var(--safe-area-inset-left));
+            background: var(--gradient-primary);
+            color: white;
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.4rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transition: all var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+            background: var(--primary-dark);
+        }
+
+        .back-button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .back-button span {
+            display: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .back-button {
+                width: auto;
+                height: auto;
+                padding: 0.8rem 1.2rem;
+                border-radius: var(--radius-full);
+            }
+            
+            .back-button span {
+                display: inline;
+            }
+        }
+
         /* Header amélioré */
         header {
             background: var(--gradient-primary);
@@ -181,6 +234,15 @@
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.6rem;
+                padding: 0 8px;
+            }
+            
+            .back-button {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
+                top: max(0.8rem, var(--safe-area-inset-top));
+                left: max(0.8rem, var(--safe-area-inset-left));
             }
         }
 
@@ -770,12 +832,19 @@
             
             h1 {
                 font-size: 1.4rem;
-                padding: 0 8px;
             }
             
             .subtitle {
                 font-size: 0.9rem;
                 padding: 0 8px;
+            }
+            
+            .back-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+                top: max(0.6rem, var(--safe-area-inset-top));
+                left: max(0.6rem, var(--safe-area-inset-left));
             }
             
             .category-nav {
@@ -970,6 +1039,12 @@
                 font-size: 1.4rem;
             }
             
+            .back-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
             .category-nav {
                 margin-bottom: 1rem;
             }
@@ -1038,6 +1113,11 @@
             .subtitle {
                 color: rgba(255, 255, 255, 0.9);
             }
+            
+            .back-button {
+                background: var(--gradient-primary);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
         }
         
         /* Support tactile amélioré */
@@ -1054,6 +1134,10 @@
                 transform: none;
             }
             
+            .back-button:hover {
+                transform: none;
+            }
+            
             .category-btn:active {
                 transform: scale(0.97);
                 transition: transform 0.1s;
@@ -1061,6 +1145,11 @@
             
             .project-link:active {
                 transform: scale(0.97);
+                transition: transform 0.1s;
+            }
+            
+            .back-button:active {
+                transform: scale(0.95);
                 transition: transform 0.1s;
             }
             
@@ -1072,6 +1161,7 @@
             /* Augmenter les zones tactiles */
             .category-btn,
             .project-link,
+            .back-button,
             .footer-links a,
             .contact-item a {
                 min-height: 48px;
@@ -1129,7 +1219,8 @@
         /* Amélioration du focus pour l'accessibilité */
         .category-btn:focus-visible,
         .project-link:focus-visible,
-        .footer-links a:focus-visible {
+        .footer-links a:focus-visible,
+        .back-button:focus-visible {
             outline: 3px solid var(--primary-color);
             outline-offset: 2px;
             box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
@@ -1150,33 +1241,10 @@
             100% { background-position: -200% 0; }
         }
         
-        /* Badge pour nouvelles fonctionnalités */
-        .new-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--commerce-color);
-            color: white;
-            padding: 4px 10px;
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: var(--shadow);
-            animation: pulse 2s ease-in-out infinite;
-            z-index: 2;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-        }
-        
         /* Styles pour les messages d'état */
         .status-message {
             position: fixed;
-            top: calc(var(--safe-area-inset-top) + 20px);
+            top: calc(var(--safe-area-inset-top) + 80px);
             right: 20px;
             left: 20px;
             background: var(--gradient-primary);
@@ -1186,7 +1254,7 @@
             box-shadow: var(--shadow-xl);
             text-align: center;
             font-weight: 600;
-            z-index: 1000;
+            z-index: 999;
             transform: translateY(-100%);
             opacity: 0;
             transition: all var(--transition);
@@ -1198,9 +1266,32 @@
             transform: translateY(0);
             opacity: 1;
         }
+        
+        /* Animation pour le bouton retour */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .back-button {
+            animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="no-overflow scroll-smooth">
+    <!-- Bouton Retour -->
+    <a href="javascript:history.back()" class="back-button" aria-label="Retour à la page précédente" id="backButton">
+        <i class="fas fa-arrow-left"></i>
+        <span>Retour</span>
+    </a>
+    
     <!-- Message d'état -->
     <div id="statusMessage" class="status-message" aria-live="polite"></div>
 
@@ -1521,6 +1612,7 @@
             };
 
             // Éléments DOM
+            const backButton = document.getElementById('backButton');
             const categoryButtons = document.querySelectorAll('.category-btn');
             const categorySections = document.querySelectorAll('.category-section');
             const statusMessage = document.getElementById('statusMessage');
@@ -1532,12 +1624,54 @@
 
             // Fonction d'initialisation
             function initPortfolio() {
+                setupBackButton();
                 setupCategoryNavigation();
                 setupAnimations();
                 setupEventListeners();
                 restoreSavedState();
                 showWelcomeMessage();
                 setupScrollToTop();
+            }
+
+            // Configuration du bouton retour
+            function setupBackButton() {
+                if (!backButton) return;
+                
+                // Gestion du clic
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Vérifier s'il y a une page précédente dans l'historique
+                    if (document.referrer && document.referrer.includes(window.location.hostname)) {
+                        window.history.back();
+                    } else {
+                        // Redirection vers une page d'accueil par défaut
+                        window.location.href = 'https://jeanskodoc.github.io';
+                    }
+                    
+                    // Feedback tactile
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+
+                // Support clavier
+                backButton.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (document.referrer && document.referrer.includes(window.location.hostname)) {
+                            window.history.back();
+                        } else {
+                            window.location.href = 'https://jeanskodoc.github.io';
+                        }
+                    }
+                });
+
+                // Animation d'entrée
+                setTimeout(() => {
+                    backButton.style.opacity = '1';
+                }, 500);
             }
 
             // Navigation par catégories
@@ -1703,6 +1837,15 @@
                 // Ajuster le padding safe area si nécessaire
                 document.documentElement.style.setProperty('--safe-area-inset-top', 'env(safe-area-inset-top)');
                 document.documentElement.style.setProperty('--safe-area-inset-bottom', 'env(safe-area-inset-bottom)');
+                
+                // Ajuster la position du bouton retour sur mobile
+                if (window.innerWidth <= 480) {
+                    backButton.style.top = `max(0.8rem, var(--safe-area-inset-top))`;
+                    backButton.style.left = `max(0.8rem, var(--safe-area-inset-left))`;
+                } else {
+                    backButton.style.top = `max(1rem, var(--safe-area-inset-top))`;
+                    backButton.style.left = `max(1rem, var(--safe-area-inset-left))`;
+                }
             }
 
             // Gestion de l'état
@@ -1796,7 +1939,7 @@
                 switchCategory: switchCategory,
                 showMessage: showStatusMessage,
                 getCurrentCategory: () => config.currentCategory,
-                version: '2.0.0'
+                version: '2.1.0'
             };
 
             // Initialisation finale
