@@ -3,40 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="theme-color" content="#2c3e50">
+    <meta name="theme-color" content="#4f46e5">
     <!-- Optimisation Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Mes Projets ESODI - Portefeuille Digital</title>
+    <title>Portefeuille ESODI - Solutions Digitales Innovantes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
     <style>
+        /* Variables CSS - Palette moderne améliorée */
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --education-color: #1abc9c;
-            --housing-color: #9b59b6;
-            --commerce-color: #e74c3c;
-            --finance-color: #f39c12;
-            --light-color: #f9f9f9;
-            --dark-color: #333;
-            --gray-color: #ecf0f1;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
+            /* Couleurs primaires - Indigo moderne */
+            --primary-color: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #818cf8;
+            
+            /* Couleurs secondaires par catégorie */
+            --education-color: #10b981;
+            --education-dark: #059669;
+            --education-light: #34d399;
+            
+            --housing-color: #8b5cf6;
+            --housing-dark: #7c3aed;
+            --housing-light: #a78bfa;
+            
+            --commerce-color: #f97316;
+            --commerce-dark: #ea580c;
+            --commerce-light: #fb923c;
+            
+            --finance-color: #0ea5e9;
+            --finance-dark: #0284c7;
+            --finance-light: #38bdf8;
+            
+            /* Couleurs neutres - Palette gris moderne */
+            --light-color: #f8fafc;
+            --light-soft: #f1f5f9;
+            --dark-color: #0f172a;
+            --dark-soft: #1e293b;
+            
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            
+            /* Ombres et effets */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.1), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Bordures et rayons */
+            --radius-sm: 6px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Espacements safe area */
             --safe-area-inset-top: env(safe-area-inset-top);
             --safe-area-inset-bottom: env(safe-area-inset-bottom);
+            --safe-area-inset-left: env(safe-area-inset-left);
+            --safe-area-inset-right: env(safe-area-inset-right);
+            
+            /* Dégradés */
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            --gradient-education: linear-gradient(135deg, var(--education-color), var(--education-dark));
+            --gradient-housing: linear-gradient(135deg, var(--housing-color), var(--housing-dark));
+            --gradient-commerce: linear-gradient(135deg, var(--commerce-color), var(--commerce-dark));
+            --gradient-finance: linear-gradient(135deg, var(--finance-color), var(--finance-dark));
         }
 
+        /* Reset et styles de base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             -webkit-tap-highlight-color: transparent;
-            -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         html {
@@ -47,8 +105,8 @@
         }
 
         body {
-            background-color: #f5f7fa;
-            color: var(--dark-color);
+            background: var(--light-color);
+            color: var(--gray-800);
             line-height: 1.6;
             min-height: 100vh;
             min-height: -webkit-fill-available;
@@ -56,158 +114,245 @@
             padding-top: var(--safe-area-inset-top);
             padding-bottom: var(--safe-area-inset-bottom);
             position: relative;
+            font-weight: 400;
         }
 
-        /* Optimisation pour éviter les débordements horizontaux */
+        /* Container principal */
         .container {
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 max(16px, var(--safe-area-inset-left));
             width: 100%;
             overflow-x: hidden;
         }
 
-        /* Header optimisé pour Android */
+        /* Header amélioré */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--gradient-primary);
             color: white;
-            padding: 1.2rem 0;
-            padding-top: calc(1.2rem + var(--safe-area-inset-top));
+            padding: 1.8rem 0;
+            padding-top: calc(1.8rem + var(--safe-area-inset-top));
             text-align: center;
-            box-shadow: var(--shadow);
-            margin-bottom: 1.2rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
             position: relative;
             width: 100%;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--education-color), 
+                var(--housing-color), 
+                var(--commerce-color), 
+                var(--finance-color));
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
         }
 
         .logo {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
             color: white;
             display: inline-block;
             vertical-align: middle;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
         }
 
         h1 {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            line-height: 1.3;
-            padding: 0 10px;
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            padding: 0 12px;
             word-wrap: break-word;
-            overflow-wrap: break-word;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
         }
 
         .subtitle {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            max-width: 100%;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 12px;
+            padding: 0 16px;
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.6;
             word-wrap: break-word;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Navigation optimisée pour mobile Android */
+        /* Navigation par catégories - Améliorée */
         .category-nav {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 1.2rem;
-            padding: 0 4px;
+            gap: 12px;
+            margin-bottom: 2rem;
+            padding: 0 8px;
             width: 100%;
         }
 
         .category-btn {
-            background-color: white;
-            border: 2px solid #e0e0e0;
-            padding: 12px 10px;
-            border-radius: 50px;
-            font-weight: 600;
+            background: white;
+            border: 2px solid var(--gray-300);
+            padding: 1rem 1.2rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition);
             box-shadow: var(--shadow);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            font-size: 0.9rem;
-            min-height: 44px;
+            gap: 10px;
+            font-size: 0.95rem;
+            min-height: 52px;
             flex: 1;
             min-width: 0;
-            max-width: 160px;
+            max-width: 200px;
             touch-action: manipulation;
             user-select: none;
             -webkit-user-select: none;
+            position: relative;
+            overflow: hidden;
+            color: var(--gray-700);
+            letter-spacing: 0.3px;
         }
 
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: scaleX(0);
+            transition: transform var(--transition);
+            z-index: 1;
+        }
+
+        .education-btn::before { background: var(--gradient-education); }
+        .housing-btn::before { background: var(--gradient-housing); }
+        .commerce-btn::before { background: var(--gradient-commerce); }
+        .finance-btn::before { background: var(--gradient-finance); }
+
         .category-btn:hover, .category-btn:focus {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
             outline: none;
+            border-color: transparent;
+        }
+
+        .category-btn:active {
+            transform: translateY(-1px);
         }
 
         .category-btn.active {
             color: white;
             border-color: transparent;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-btn.active::before {
+            transform: scaleX(1);
         }
 
         .education-btn.active {
-            background-color: var(--education-color);
+            background: var(--gradient-education);
         }
 
         .housing-btn.active {
-            background-color: var(--housing-color);
+            background: var(--gradient-housing);
         }
 
         .commerce-btn.active {
-            background-color: var(--commerce-color);
+            background: var(--gradient-commerce);
         }
 
         .finance-btn.active {
-            background-color: var(--finance-color);
+            background: var(--gradient-finance);
         }
 
         .category-btn i {
-            font-size: 1rem;
-            min-width: 20px;
+            font-size: 1.1rem;
+            min-width: 24px;
+            transition: transform var(--transition);
+        }
+
+        .category-btn:hover i,
+        .category-btn.active i {
+            transform: scale(1.2);
         }
 
         .category-btn span {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-weight: 600;
         }
 
         /* Sections catégories */
         .category-section {
             display: none;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             width: 100%;
+            animation: fadeIn 0.5s ease-out;
         }
 
         .category-section.active {
             display: block;
-            animation: fadeIn 0.5s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(20px) scale(0.98); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
         }
 
         .category-title {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
-            padding-bottom: 8px;
+            gap: 14px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 12px;
             border-bottom: 3px solid;
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 800;
             width: 100%;
             overflow: hidden;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: currentColor;
+            opacity: 0.5;
         }
 
         .education-title {
@@ -231,192 +376,294 @@
         }
 
         .category-icon {
-            font-size: 1.4rem;
-            min-width: 30px;
+            font-size: 1.8rem;
+            min-width: 36px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
 
-        /* Grid de projets optimisé pour Android */
+        /* Grid de projets amélioré */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
             width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
         }
 
         .project-card {
-            background-color: white;
-            border-radius: var(--radius);
+            background: white;
+            border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all var(--transition);
             display: flex;
             flex-direction: column;
             position: relative;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--gray-200);
             width: 100%;
-            min-height: 200px;
+            min-height: 240px;
+            will-change: transform;
+            backface-visibility: hidden;
         }
 
         .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
         }
 
-        /* NUMÉROTATION RÉDUITE */
+        .project-card:active {
+            transform: translateY(-4px);
+        }
+
         .project-number {
-            background-color: var(--secondary-color);
+            background: var(--gradient-primary);
             color: white;
-            width: 26px;
-            height: 26px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 800;
             position: absolute;
-            top: 12px;
-            left: 12px;
-            font-size: 0.85rem;
+            top: 16px;
+            left: 16px;
+            font-size: 1rem;
             z-index: 2;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition);
+        }
+
+        .project-card:hover .project-number {
+            transform: scale(1.1) rotate(10deg);
         }
 
         .project-content {
-            padding: 16px;
+            padding: 24px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         .project-title {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--gray-900);
+            font-weight: 800;
             line-height: 1.3;
-            padding-right: 30px;
+            padding-right: 40px;
             word-wrap: break-word;
+            letter-spacing: -0.3px;
         }
 
         .project-description {
-            color: #666;
-            margin-bottom: 16px;
+            color: var(--gray-600);
+            margin-bottom: 24px;
             flex-grow: 1;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            line-height: 1.6;
             word-wrap: break-word;
         }
 
         .project-link {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background: var(--gradient-primary);
             color: white;
-            padding: 12px 16px;
+            padding: 14px 24px;
             border-radius: var(--radius);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-size: 0.95rem;
-            min-height: 44px;
+            transition: all var(--transition);
+            font-size: 1rem;
+            min-height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             border: none;
             cursor: pointer;
             width: 100%;
             touch-action: manipulation;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            letter-spacing: 0.3px;
+        }
+
+        .project-link::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width var(--transition), height var(--transition);
+        }
+
+        .project-link:active::after {
+            width: 300px;
+            height: 300px;
         }
 
         .project-link:hover, .project-link:focus {
-            background-color: var(--primary-color);
-            transform: scale(1.01);
+            background: var(--gradient-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
             outline: none;
             color: white;
         }
 
-        /* Footer optimisé pour Android */
+        .project-link i {
+            transition: transform var(--transition);
+        }
+
+        .project-link:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Footer amélioré */
         footer {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
             color: white;
             text-align: center;
-            padding: 1.5rem 0;
-            padding-bottom: calc(1.5rem + var(--safe-area-inset-bottom));
-            margin-top: 2rem;
+            padding: 3rem 0;
+            padding-bottom: calc(3rem + var(--safe-area-inset-bottom));
+            margin-top: 4rem;
             width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
         }
 
         .footer-content {
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 16px;
+            padding: 0 max(16px, var(--safe-area-inset-left));
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         .footer-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
             word-wrap: break-word;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .footer-content p {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             opacity: 0.9;
-            line-height: 1.5;
-            margin-bottom: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
             word-wrap: break-word;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.85);
         }
 
-        /* Informations développeur optimisées */
+        /* Informations développeur améliorées */
         .developer-info {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius);
-            padding: 1.2rem;
-            margin: 1.2rem 0;
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            margin: 2rem 0;
             text-align: left;
             width: 100%;
             max-width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-lg);
         }
 
         .developer-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
             color: white;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
             word-wrap: break-word;
+            font-weight: 800;
         }
 
         .developer-info h4 i {
-            color: var(--secondary-color);
-            min-width: 24px;
+            color: var(--primary-light);
+            min-width: 28px;
+            font-size: 1.3rem;
         }
 
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 14px;
             width: 100%;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            font-size: 0.9rem;
+            gap: 14px;
+            font-size: 1rem;
             opacity: 0.9;
             width: 100%;
             word-wrap: break-word;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-fast);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            opacity: 1;
         }
 
         .contact-item i {
-            width: 20px;
-            color: var(--secondary-color);
+            width: 24px;
+            color: var(--primary-light);
             flex-shrink: 0;
             margin-top: 2px;
+            font-size: 1.1rem;
         }
 
         .contact-item span {
@@ -424,324 +671,376 @@
             word-wrap: break-word;
         }
 
-        .contact-item a {
+        .contact-item strong {
             color: white;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .contact-item a {
+            color: var(--primary-light);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all var(--transition);
             word-wrap: break-word;
             display: inline-block;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .contact-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width var(--transition);
         }
 
         .contact-item a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
+            color: white;
+        }
+
+        .contact-item a:hover::after {
+            width: 100%;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 1rem 0;
+            gap: 16px;
+            margin: 2rem 0;
             width: 100%;
         }
 
         .footer-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
+            transition: all var(--transition);
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 5px;
-            padding: 6px 10px;
-            border-radius: 4px;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: var(--radius-full);
             background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
         }
 
         .footer-links a:hover {
-            color: var(--secondary-color);
+            color: var(--primary-light);
             background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
-        /* ========== RESPONSIVE ANDROID OPTIMISÉ ========== */
+        .footer-links a:active {
+            transform: translateY(0);
+        }
+
+        .footer-links a i {
+            font-size: 1.1rem;
+        }
+
+        /* ========== RESPONSIVE OPTIMISÉ ========== */
         
-        /* Petits écrans Android (320px - 360px) */
+        /* Petits écrans (320px - 360px) */
         @media (max-width: 360px) {
             html {
                 font-size: 14px;
             }
             
             .container {
-                padding: 0 12px;
+                padding: 0 max(12px, var(--safe-area-inset-left));
             }
             
             header {
-                padding: 1rem 0;
-                padding-top: calc(1rem + var(--safe-area-inset-top));
-                margin-bottom: 1rem;
+                padding: 1.2rem 0;
+                padding-top: calc(1.2rem + var(--safe-area-inset-top));
+                margin-bottom: 1.5rem;
             }
             
             .logo {
-                font-size: 1.6rem;
+                font-size: 2rem;
             }
             
             h1 {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
                 padding: 0 8px;
             }
             
             .subtitle {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 padding: 0 8px;
             }
             
             .category-nav {
-                gap: 6px;
-                margin-bottom: 1rem;
+                gap: 8px;
+                margin-bottom: 1.5rem;
             }
             
             .category-btn {
-                padding: 10px 8px;
-                font-size: 0.8rem;
-                min-height: 40px;
-                max-width: 140px;
-                gap: 4px;
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+                min-height: 48px;
+                max-width: 160px;
+                gap: 6px;
             }
             
             .category-btn i {
-                font-size: 0.9rem;
-                min-width: 18px;
+                font-size: 1rem;
+                min-width: 20px;
             }
             
             .category-title {
-                font-size: 1.2rem;
-                margin-bottom: 0.8rem;
+                font-size: 1.4rem;
+                margin-bottom: 1.2rem;
             }
             
             .category-icon {
-                font-size: 1.2rem;
-                min-width: 24px;
+                font-size: 1.4rem;
+                min-width: 28px;
             }
             
             .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
+                gap: 16px;
             }
             
             .project-card {
-                min-height: 180px;
-                border-radius: 10px;
+                min-height: 220px;
+                border-radius: var(--radius);
             }
             
             .project-number {
-                width: 24px;
-                height: 24px;
-                font-size: 0.8rem;
-                top: 10px;
-                left: 10px;
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+                top: 14px;
+                left: 14px;
             }
             
             .project-content {
-                padding: 14px;
+                padding: 20px;
             }
             
             .project-title {
-                font-size: 1.1rem;
-                padding-right: 28px;
+                font-size: 1.2rem;
+                padding-right: 36px;
             }
             
             .project-description {
-                font-size: 0.85rem;
-                margin-bottom: 14px;
+                font-size: 0.9rem;
+                margin-bottom: 20px;
             }
             
             .project-link {
-                padding: 10px 14px;
+                padding: 12px 20px;
                 font-size: 0.9rem;
-                min-height: 40px;
+                min-height: 48px;
             }
             
             .developer-info {
-                padding: 1rem;
+                padding: 1.5rem;
             }
             
             .developer-info h4 {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
             
             .contact-item {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
+                gap: 10px;
             }
             
             .footer-content h3 {
-                font-size: 1.1rem;
+                font-size: 1.4rem;
             }
         }
         
-        /* Écrans Android moyens (361px - 480px) */
+        /* Écrans moyens (361px - 480px) */
         @media (min-width: 361px) and (max-width: 480px) {
             html {
                 font-size: 15px;
             }
             
             .container {
-                padding: 0 14px;
+                padding: 0 max(14px, var(--safe-area-inset-left));
             }
             
             .category-nav {
-                gap: 8px;
+                gap: 10px;
             }
             
             .category-btn {
-                padding: 10px 8px;
-                font-size: 0.82rem;
-                max-width: 150px;
+                padding: 0.9rem 1.1rem;
+                font-size: 0.88rem;
+                max-width: 170px;
             }
             
             .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 14px;
+                gap: 18px;
             }
             
             .project-card {
-                min-height: 190px;
+                min-height: 230px;
             }
         }
         
-        /* Écrans Android larges (481px - 600px) */
+        /* Écrans larges (481px - 600px) */
         @media (min-width: 481px) and (max-width: 600px) {
             html {
                 font-size: 15.5px;
             }
             
             .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-                gap: 16px;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
             }
             
             .category-btn {
-                padding: 11px 9px;
-                font-size: 0.85rem;
+                padding: 1rem 1.2rem;
+                font-size: 0.9rem;
             }
         }
         
-        /* Tablettes Android (601px - 768px) */
+        /* Tablettes (601px - 768px) */
         @media (min-width: 601px) and (max-width: 768px) {
             html {
                 font-size: 16px;
             }
             
             .container {
-                padding: 0 20px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 18px;
-            }
-            
-            .category-btn {
-                padding: 12px 10px;
-                font-size: 0.88rem;
-                max-width: 170px;
-            }
-        }
-        
-        /* Tablettes Android larges (769px - 1024px) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                padding: 0 24px;
+                padding: 0 max(20px, var(--safe-area-inset-left));
             }
             
             .projects-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 20px;
+                gap: 22px;
             }
             
             .category-btn {
-                max-width: 180px;
+                padding: 1.1rem 1.3rem;
+                font-size: 0.92rem;
+                max-width: 190px;
+            }
+        }
+        
+        /* Tablettes larges (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 max(24px, var(--safe-area-inset-left));
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 24px;
+            }
+            
+            .category-btn {
+                max-width: 200px;
+            }
+        }
+        
+        /* Desktop (1025px+) */
+        @media (min-width: 1025px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 max(32px, var(--safe-area-inset-left));
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 28px;
             }
         }
         
         /* Mode paysage mobile */
         @media (max-height: 500px) and (orientation: landscape) {
             header {
-                padding: 0.8rem 0;
-                padding-top: calc(0.8rem + var(--safe-area-inset-top));
-                margin-bottom: 0.8rem;
+                padding: 1rem 0;
+                padding-top: calc(1rem + var(--safe-area-inset-top));
+                margin-bottom: 1rem;
             }
             
             h1 {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .category-nav {
-                margin-bottom: 0.8rem;
+                margin-bottom: 1rem;
             }
             
             .category-title {
-                font-size: 1.2rem;
-                margin-bottom: 0.8rem;
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
             }
             
             .projects-grid {
-                gap: 12px;
+                gap: 16px;
             }
             
             .project-card {
-                min-height: 170px;
+                min-height: 200px;
             }
             
             .project-content {
-                padding: 12px;
+                padding: 16px;
             }
             
             .project-title {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             
             .project-description {
-                font-size: 0.85rem;
-                margin-bottom: 12px;
+                font-size: 0.9rem;
+                margin-bottom: 16px;
             }
         }
         
-        /* Mode sombre */
+        /* Mode sombre amélioré */
         @media (prefers-color-scheme: dark) {
             :root {
-                --light-color: #1a1a1a;
-                --dark-color: #f0f0f0;
-                --gray-color: #2d2d2d;
+                --light-color: #0f172a;
+                --light-soft: #1e293b;
+                --dark-color: #f8fafc;
+                --gray-200: #334155;
                 --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             }
             
             body {
-                background-color: #121212;
+                background: var(--light-color);
                 color: var(--dark-color);
             }
             
             .project-card {
-                background-color: #2a2a2a;
-                border-color: rgba(255,255,255,0.05);
+                background: var(--light-soft);
+                border-color: var(--gray-700);
             }
             
             .project-title {
-                color: #f0f0f0;
+                color: #f8fafc;
             }
             
             .project-description {
-                color: #aaa;
+                color: #cbd5e1;
             }
             
             .category-btn:not(.active) {
-                background-color: #2a2a2a;
-                color: #f0f0f0;
-                border-color: #444;
+                background: var(--light-soft);
+                color: var(--dark-color);
+                border-color: var(--gray-600);
+            }
+            
+            .subtitle {
+                color: rgba(255, 255, 255, 0.9);
             }
         }
         
-        /* Support tactile Android */
+        /* Support tactile amélioré */
         @media (hover: none) and (pointer: coarse) {
             .project-card:hover {
                 transform: none;
@@ -766,19 +1065,25 @@
             }
             
             .footer-links a:active {
+                transform: scale(0.97);
                 background: rgba(255, 255, 255, 0.3);
             }
             
-            /* Augmenter les zones tactiles pour Android */
+            /* Augmenter les zones tactiles */
             .category-btn,
             .project-link,
             .footer-links a,
             .contact-item a {
+                min-height: 48px;
+            }
+            
+            .contact-item {
                 min-height: 44px;
+                align-items: center;
             }
         }
         
-        /* Prévenir les problèmes de zoom sur Android */
+        /* Prévenir les problèmes de zoom */
         @media screen and (-webkit-min-device-pixel-ratio:0) {
             select,
             textarea,
@@ -798,16 +1103,114 @@
             overflow-x: hidden;
             max-width: 100vw;
         }
+        
+        /* Animation pour les cartes */
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .project-card {
+            animation: cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+        
+        /* Styles pour le mode défilement fluide */
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        /* Amélioration du focus pour l'accessibilité */
+        .category-btn:focus-visible,
+        .project-link:focus-visible,
+        .footer-links a:focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+        }
+        
+        /* Loading state pour les cartes */
+        .project-card.loading {
+            background: linear-gradient(90deg, 
+                var(--gray-200) 25%, 
+                var(--gray-300) 50%, 
+                var(--gray-200) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Badge pour nouvelles fonctionnalités */
+        .new-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--commerce-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow);
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 2;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        /* Styles pour les messages d'état */
+        .status-message {
+            position: fixed;
+            top: calc(var(--safe-area-inset-top) + 20px);
+            right: 20px;
+            left: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            font-weight: 600;
+            z-index: 1000;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all var(--transition);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .status-message.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
-<body class="no-overflow">
+<body class="no-overflow scroll-smooth">
+    <!-- Message d'état -->
+    <div id="statusMessage" class="status-message" aria-live="polite"></div>
+
     <header class="safe-area-padding">
         <div class="container">
             <div class="logo">
                 <i class="fas fa-laptop-code"></i>
             </div>
-            <h1>Mes Projets ESODI</h1>
-            <p class="subtitle">Portefeuille de projets digitaux regroupés par catégories. Explorez les projets par domaine d'activité.</p>
+            <h1>Portefeuille ESODI</h1>
+            <p class="subtitle">Solutions digitales innovantes regroupées par domaines d'expertise. Découvrez des projets conçus pour transformer les défis en opportunités.</p>
         </div>
     </header>
 
@@ -831,7 +1234,7 @@
         <!-- Projets Éducation -->
         <section id="education" class="category-section active" aria-label="Projets Éducation">
             <h2 class="category-title education-title">
-                <i class="fas fa-graduation-cap category-icon"></i> <span>Projets Éducation</span>
+                <i class="fas fa-graduation-cap category-icon"></i> <span>Solutions Éducatives</span>
             </h2>
             <div class="projects-grid">
                 <!-- Projet 1 -->
@@ -839,8 +1242,10 @@
                     <div class="project-number">1</div>
                     <div class="project-content">
                         <h3 class="project-title">COURS DIFFUSÉ</h3>
-                        <p class="project-description">Présenter vos leçons de manière professionnelle dans vos classes.</p>
-                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P1.html" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <p class="project-description">Solution complète pour présenter vos leçons de manière professionnelle et interactive dans vos classes.</p>
+                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P1.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Cours Diffusé">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -848,9 +1253,11 @@
                 <article class="project-card">
                     <div class="project-number">2</div>
                     <div class="project-content">
-                        <h3 class="project-title">École  digne du siecle EDS</h3>
-                        <p class="project-description">logiciel pour les écoles modernes.</p>
-                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P2.html" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">École du 21ᵉ Siècle</h3>
+                        <p class="project-description">Plateforme logicielle complète pour la gestion et l'administration des écoles modernes.</p>
+                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P2.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet École du 21ᵉ Siècle">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -858,9 +1265,11 @@
                 <article class="project-card">
                     <div class="project-number">3</div>
                     <div class="project-content">
-                        <h3 class="project-title">Corrigé types et rédaction des documents en latex</h3>
-                        <p class="project-description">corrigés type;rédactionde rapports de mémoire et soutenance en latex.</p>
-                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P3.html" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">LaTeX - Documents Académiques</h3>
+                        <p class="project-description">Outils et templates pour la rédaction professionnelle de rapports, mémoires et présentations en LaTeX.</p>
+                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P3.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet LaTeX">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -868,9 +1277,11 @@
                 <article class="project-card">
                     <div class="project-number">4</div>
                     <div class="project-content">
-                        <h3 class="project-title">Répétitions et École en Ligne</h3>
-                        <p class="project-description">Plateforme complète pour les répétitions et l'enseignement en ligne avec suivi des progrès.</p>
-                        <a href="https://jeanskodoc.github.io/EPT/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Répétitions & École en Ligne</h3>
+                        <p class="project-description">Plateforme complète d'enseignement en ligne avec suivi personnalisé des progrès des étudiants.</p>
+                        <a href="https://jeanskodoc.github.io/EPT/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Répétitions en Ligne">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -878,9 +1289,11 @@
                 <article class="project-card">
                     <div class="project-number">5</div>
                     <div class="project-content">
-                        <h3 class="project-title">Gestion Tableaux de Services</h3>
-                        <p class="project-description">Outil de gestion des emplois du temps et tableaux de services pour établissements éducatifs.</p>
-                        <a href="https://jeanskodoc.github.io/Emploi-du-temps-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Gestion des Emplois du Temps</h3>
+                        <p class="project-description">Outil intelligent de gestion des emplois du temps et tableaux de services pour établissements éducatifs.</p>
+                        <a href="https://jeanskodoc.github.io/Emploi-du-temps-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Emplois du Temps">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -888,9 +1301,11 @@
                 <article class="project-card">
                     <div class="project-number">6</div>
                     <div class="project-content">
-                        <h3 class="project-title">Modèle d'Enseignement</h3>
-                        <p class="project-description">Modèle pédagogique innovant avec outils de planification et de suivi pour enseignants.</p>
-                        <a href="https://jeanskodoc.github.io/ENSEIGNANT-MODEL/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Modèle Pédagogique Innovant</h3>
+                        <p class="project-description">Framework complet avec outils de planification et de suivi pour enseignants modernes.</p>
+                        <a href="https://jeanskodoc.github.io/ENSEIGNANT-MODEL/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Modèle Pédagogique">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -899,8 +1314,10 @@
                     <div class="project-number">7</div>
                     <div class="project-content">
                         <h3 class="project-title">Tontine Équilibrée</h3>
-                        <p class="project-description">Système de gestion de tontine équitable pour les groupes d'épargne communautaire.</p>
-                        <a href="https://jeanskodoc.github.io/TONTINE/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <p class="project-description">Système de gestion de tontine équitable et transparente pour groupes d'épargne communautaire.</p>
+                        <a href="https://jeanskodoc.github.io/TONTINE/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Tontine Équilibrée">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -908,9 +1325,11 @@
                 <article class="project-card">
                     <div class="project-number">8</div>
                     <div class="project-content">
-                        <h3 class="project-title">Librairie en Ligne</h3>
-                        <p class="project-description">Plateforme de distribution de livres électroniques avec système de recherche avancé.</p>
-                        <a href="https://jeanskodoc.github.io/EBOOK-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Librairie Numérique</h3>
+                        <p class="project-description">Plateforme de distribution de livres électroniques avec système de recherche avancé et recommandations.</p>
+                        <a href="https://jeanskodoc.github.io/EBOOK-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Librairie Numérique">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -918,9 +1337,11 @@
                 <article class="project-card">
                     <div class="project-number">9</div>
                     <div class="project-content">
-                        <h3 class="project-title">Gestion de Fiches de Leçons</h3>
-                        <p class="project-description">Application de gestion et de création de fiches de leçons pour enseignants.</p>
-                        <a href="https://jeanskodoc.github.io/ENS-R/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Gestion de Fiches Pédagogiques</h3>
+                        <p class="project-description">Application complète de création, gestion et partage de fiches de leçons pour enseignants.</p>
+                        <a href="https://jeanskodoc.github.io/ENS-R/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Fiches Pédagogiques">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -929,16 +1350,18 @@
         <!-- Projets Logement -->
         <section id="housing" class="category-section" aria-label="Projets Logement">
             <h2 class="category-title housing-title">
-                <i class="fas fa-home category-icon"></i> <span>Projets Logement</span>
+                <i class="fas fa-home category-icon"></i> <span>Solutions Immobilières</span>
             </h2>
             <div class="projects-grid">
                 <!-- Projet 1 -->
                 <article class="project-card">
                     <div class="project-number">1</div>
                     <div class="project-content">
-                        <h3 class="project-title">Gestion de Logements</h3>
-                        <p class="project-description">Système complet de gestion immobilière avec suivi des loyers, entretien et contrats.</p>
-                        <a href="https://jeanskodoc.github.io/RE-U-DE-LOYER/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Gestion Immobilière Complète</h3>
+                        <p class="project-description">Système intégré de gestion immobilière avec suivi des loyers, entretien, contrats et rapports financiers.</p>
+                        <a href="https://jeanskodoc.github.io/RE-U-DE-LOYER/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion Immobilière">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -947,7 +1370,7 @@
         <!-- Projets Commerce -->
         <section id="commerce" class="category-section" aria-label="Projets Commerce">
             <h2 class="category-title commerce-title">
-                <i class="fas fa-shopping-cart category-icon"></i> <span>Projets Commerce</span>
+                <i class="fas fa-shopping-cart category-icon"></i> <span>Solutions Commerciales</span>
             </h2>
             <div class="projects-grid">
                 <!-- Projet 1 -->
@@ -955,8 +1378,10 @@
                     <div class="project-number">1</div>
                     <div class="project-content">
                         <h3 class="project-title">Gestion de Boutique</h3>
-                        <p class="project-description">Solution de gestion d'inventaire et de ventes pour boutiques physiques et en ligne.</p>
-                        <a href="https://jeanskodoc.github.io/E-Commerce-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <p class="project-description">Solution complète de gestion d'inventaire, de ventes et de clientèle pour boutiques physiques et en ligne.</p>
+                        <a href="https://jeanskodoc.github.io/E-Commerce-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion de Boutique">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -964,9 +1389,11 @@
                 <article class="project-card">
                     <div class="project-number">2</div>
                     <div class="project-content">
-                        <h3 class="project-title">Vente en Ligne</h3>
-                        <p class="project-description">Plateforme e-commerce complète avec gestion des produits, panier et paiement.</p>
-                        <a href="https://jeanskodoc.github.io/Ma-boutique-en-ligne-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Boutique en Ligne</h3>
+                        <p class="project-description">Plateforme e-commerce complète avec gestion des produits, panier, paiement sécurisé et suivi des commandes.</p>
+                        <a href="https://jeanskodoc.github.io/Ma-boutique-en-ligne-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Boutique en Ligne">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -974,9 +1401,11 @@
                 <article class="project-card">
                     <div class="project-number">3</div>
                     <div class="project-content">
-                        <h3 class="project-title">Transport-Command</h3>
-                        <p class="project-description">Système de gestion de commandes et de livraisons pour services de transport.</p>
-                        <a href="https://jeanskodoc.github.io/transport-Togo-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Système Transport-Commande</h3>
+                        <p class="project-description">Solution de gestion de commandes et de livraisons optimisée pour les services de transport.</p>
+                        <a href="https://jeanskodoc.github.io/transport-Togo-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Transport-Commande">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -984,9 +1413,11 @@
                 <article class="project-card">
                     <div class="project-number">4</div>
                     <div class="project-content">
-                        <h3 class="project-title">Facture et Reçu Digitaux</h3>
-                        <p class="project-description">Génération et gestion de factures et reçus numériques avec suivi des paiements.</p>
-                        <a href="https://jeanskodoc.github.io/Factures-digitalis-es/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Facturation Digitale</h3>
+                        <p class="project-description">Système de génération et gestion de factures et reçus numériques avec suivi automatisé des paiements.</p>
+                        <a href="https://jeanskodoc.github.io/Factures-digitalis-es/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Facturation Digitale">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -995,16 +1426,18 @@
         <!-- Projets Finance -->
         <section id="finance" class="category-section" aria-label="Projets Finance">
             <h2 class="category-title finance-title">
-                <i class="fas fa-chart-line category-icon"></i> <span>Projets Finance</span>
+                <i class="fas fa-chart-line category-icon"></i> <span>Solutions Financières</span>
             </h2>
             <div class="projects-grid">
                 <!-- Projet 1 -->
                 <article class="project-card">
                     <div class="project-number">1</div>
                     <div class="project-content">
-                        <h3 class="project-title">Portefeuille Virtuel</h3>
-                        <p class="project-description">Application de gestion financière personnelle avec suivi des dépenses et épargne.</p>
-                        <a href="https://jeanskodoc.github.io/-CONOMIE-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Gestion Financière Personnelle</h3>
+                        <p class="project-description">Application complète de gestion financière avec suivi des dépenses, budget et objectifs d'épargne.</p>
+                        <a href="https://jeanskodoc.github.io/-CONOMIE-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion Financière">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -1012,9 +1445,11 @@
                 <article class="project-card">
                     <div class="project-number">2</div>
                     <div class="project-content">
-                        <h3 class="project-title">Carte Virtuelle (Made in Togo)</h3>
-                        <p class="project-description">Solution de carte de paiement virtuelle sécurisée adaptée au marché togolais.</p>
-                        <a href="https://jeanskodoc.github.io/Carte-virtuelle-/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Carte Virtuelle Togolaise</h3>
+                        <p class="project-description">Solution innovante de carte de paiement virtuelle sécurisée adaptée au marché togolais.</p>
+                        <a href="https://jeanskodoc.github.io/Carte-virtuelle-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Carte Virtuelle">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
                 
@@ -1022,9 +1457,11 @@
                 <article class="project-card">
                     <div class="project-number">3</div>
                     <div class="project-content">
-                        <h3 class="project-title">Suivi-Agent (CEET/TDE)</h3>
-                        <p class="project-description">Système de suivi et de gestion des agents pour institutions financières.</p>
-                        <a href="https://jeanskodoc.github.io/CEET-TDE/" target="_blank" rel="noopener noreferrer" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                        <h3 class="project-title">Suivi & Gestion d'Agents</h3>
+                        <p class="project-description">Système de suivi et de gestion des performances pour agents d'institutions financières.</p>
+                        <a href="https://jeanskodoc.github.io/CEET-TDE/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion d'Agents">
+                            Explorer le projet <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -1033,12 +1470,12 @@
 
     <footer class="safe-area-padding">
         <div class="container footer-content">
-            <h3>Portefeuille de Projets Digitaux ESODI</h3>
-            <p>Une collection de solutions digitales innovantes pour l'éducation, le logement, le commerce et la finance.</p>
+            <h3>Portefeuille Digital ESODI</h3>
+            <p>Une collection exclusive de solutions digitales innovantes conçues pour transformer les secteurs de l'éducation, du logement, du commerce et de la finance en Afrique.</p>
             
             <!-- Informations du développeur -->
             <div class="developer-info">
-                <h4><i class="fas fa-user-tie"></i> Développeur</h4>
+                <h4><i class="fas fa-user-tie"></i> Développeur & Concepteur</h4>
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-user"></i>
@@ -1046,7 +1483,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span><strong>Localisation :</strong> KARA - Togo</span>
+                        <span><strong>Localisation :</strong> KARA - Togo 🇹🇬</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -1060,20 +1497,84 @@
             </div>
             
             <div class="footer-links">
-                <a href="mailto:jeanskodoc22@gmail.com" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="#" aria-label="À propos"><i class="fas fa-info-circle"></i> À propos</a>
-                <a href="#" aria-label="Développeur"><i class="fas fa-code"></i> Développeur</a>
+                <a href="mailto:jeanskodoc22@gmail.com" aria-label="Contact par email">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+                <a href="#education" class="scroll-to-top" aria-label="Voir les projets éducation">
+                    <i class="fas fa-graduation-cap"></i> Éducation
+                </a>
+                <a href="https://github.com/jeanskodoc" target="_blank" rel="noopener noreferrer" aria-label="Visiter GitHub">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
             </div>
-            <p>&copy; 2023 ESODI - Tous droits réservés</p>
+            <p>&copy; 2023-2024 ESODI - Tous droits réservés | Made with ❤️ in Togo</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Configuration
+            const config = {
+                storageKey: 'esodi_portfolio_state',
+                animationsEnabled: true,
+                currentCategory: 'education'
+            };
+
+            // Éléments DOM
             const categoryButtons = document.querySelectorAll('.category-btn');
             const categorySections = document.querySelectorAll('.category-section');
-            
-            // Fonction pour changer de catégorie
+            const statusMessage = document.getElementById('statusMessage');
+            const projectCards = document.querySelectorAll('.project-card');
+            const scrollToTopLinks = document.querySelectorAll('.scroll-to-top');
+
+            // Initialisation
+            initPortfolio();
+
+            // Fonction d'initialisation
+            function initPortfolio() {
+                setupCategoryNavigation();
+                setupAnimations();
+                setupEventListeners();
+                restoreSavedState();
+                showWelcomeMessage();
+                setupScrollToTop();
+            }
+
+            // Navigation par catégories
+            function setupCategoryNavigation() {
+                categoryButtons.forEach(button => {
+                    // Gestion du clic
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const categoryId = this.getAttribute('data-category');
+                        switchCategory(categoryId);
+                        
+                        // Feedback tactile
+                        this.style.transform = 'scale(0.97)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    });
+
+                    // Support clavier
+                    button.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const categoryId = this.getAttribute('data-category');
+                            switchCategory(categoryId);
+                        }
+                    });
+
+                    // Prévenir le double-tap zoom
+                    button.addEventListener('touchstart', function(e) {
+                        if (e.touches.length > 1) {
+                            e.preventDefault();
+                        }
+                    }, { passive: false });
+                });
+            }
+
+            // Changer de catégorie
             function switchCategory(categoryId) {
                 // Mettre à jour les boutons
                 categoryButtons.forEach(btn => {
@@ -1091,11 +1592,12 @@
                     section.classList.remove('active');
                     if (section.id === categoryId) {
                         section.classList.add('active');
+                        
                         // Défilement doux sur mobile
                         if (window.innerWidth <= 768) {
                             setTimeout(() => {
                                 window.scrollTo({
-                                    top: section.offsetTop - 80,
+                                    top: section.offsetTop - 100,
                                     behavior: 'smooth'
                                 });
                             }, 50);
@@ -1103,129 +1605,175 @@
                     }
                 });
                 
-                // Sauvegarder la catégorie active
-                try {
-                    localStorage.setItem('activeCategory', categoryId);
-                } catch(e) {
-                    console.log("LocalStorage non disponible");
+                // Sauvegarder l'état
+                saveState('currentCategory', categoryId);
+                
+                // Afficher un message
+                showStatusMessage(`Affichage des projets ${getCategoryName(categoryId)}`);
+                
+                // Mettre à jour la configuration
+                config.currentCategory = categoryId;
+            }
+
+            // Obtenir le nom d'une catégorie
+            function getCategoryName(categoryId) {
+                const names = {
+                    'education': 'Éducation',
+                    'housing': 'Logement',
+                    'commerce': 'Commerce',
+                    'finance': 'Finance'
+                };
+                return names[categoryId] || categoryId;
+            }
+
+            // Animations
+            function setupAnimations() {
+                if (!config.animationsEnabled) return;
+
+                // Animation des cartes au scroll
+                if ('IntersectionObserver' in window) {
+                    const observerOptions = {
+                        threshold: 0.05,
+                        rootMargin: '0px 0px -50px 0px'
+                    };
+                    
+                    const observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                requestAnimationFrame(() => {
+                                    entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+                                    entry.target.style.animationPlayState = 'running';
+                                });
+                            }
+                        });
+                    }, observerOptions);
+                    
+                    projectCards.forEach((card, index) => {
+                        card.style.animation = 'cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                        card.style.animationPlayState = 'paused';
+                        card.style.animationDelay = `${index * 0.05}s`;
+                        observer.observe(card);
+                    });
                 }
             }
-            
-            // Ajouter des écouteurs d'événements aux boutons
-            categoryButtons.forEach(button => {
-                // Support tactile Android
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const categoryId = this.getAttribute('data-category');
-                    switchCategory(categoryId);
-                    // Feedback tactile
-                    this.style.transform = 'scale(0.97)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+
+            // Écouteurs d'événements
+            function setupEventListeners() {
+                // Feedback tactile pour les liens
+                document.querySelectorAll('.project-link, .footer-links a').forEach(link => {
+                    link.addEventListener('touchstart', function() {
+                        this.style.transform = 'scale(0.97)';
+                    });
+                    
+                    link.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    });
                 });
+
+                // Gestion du redimensionnement
+                window.addEventListener('resize', debounce(adjustLayout, 250));
                 
-                // Support clavier
-                button.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        const categoryId = this.getAttribute('data-category');
-                        switchCategory(categoryId);
-                    }
+                // Gestion de l'orientation
+                window.addEventListener('orientationchange', function() {
+                    setTimeout(adjustLayout, 300);
                 });
-                
-                // Prévenir le double-tap zoom sur Android
-                button.addEventListener('touchstart', function(e) {
-                    if (e.touches.length > 1) {
+
+                // Prévenir le zoom sur iOS/Android
+                document.addEventListener('touchmove', function(e) {
+                    if (e.scale !== 1) {
                         e.preventDefault();
                     }
                 }, { passive: false });
-            });
-            
-            // Restaurer la catégorie active
-            let savedCategory = 'education';
-            try {
-                savedCategory = localStorage.getItem('activeCategory') || 'education';
-            } catch(e) {
-                savedCategory = 'education';
+
+                // Prévenir le double-tap zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = Date.now();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
             }
-            switchCategory(savedCategory);
-            
-            // Animation des cartes optimisée pour Android
-            const observerOptions = {
-                threshold: 0.05,
-                rootMargin: '0px 0px -30px 0px'
-            };
-            
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            requestAnimationFrame(() => {
-                                entry.target.style.opacity = '1';
-                                entry.target.style.transform = 'translateY(0)';
+
+            // Ajuster le layout
+            function adjustLayout() {
+                // Ajuster le padding safe area si nécessaire
+                document.documentElement.style.setProperty('--safe-area-inset-top', 'env(safe-area-inset-top)');
+                document.documentElement.style.setProperty('--safe-area-inset-bottom', 'env(safe-area-inset-bottom)');
+            }
+
+            // Gestion de l'état
+            function saveState(key, value) {
+                try {
+                    const state = JSON.parse(localStorage.getItem(config.storageKey)) || {};
+                    state[key] = value;
+                    localStorage.setItem(config.storageKey, JSON.stringify(state));
+                } catch (e) {
+                    console.warn('LocalStorage non disponible');
+                }
+            }
+
+            function restoreSavedState() {
+                try {
+                    const savedState = JSON.parse(localStorage.getItem(config.storageKey));
+                    if (savedState && savedState.currentCategory) {
+                        switchCategory(savedState.currentCategory);
+                    }
+                } catch (e) {
+                    // Utiliser la catégorie par défaut
+                    switchCategory('education');
+                }
+            }
+
+            // Messages d'état
+            function showStatusMessage(message, duration = 3000) {
+                if (!statusMessage) return;
+                
+                statusMessage.textContent = message;
+                statusMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    statusMessage.classList.remove('show');
+                }, duration);
+            }
+
+            function showWelcomeMessage() {
+                setTimeout(() => {
+                    showStatusMessage('👋 Bienvenue sur le portefeuille ESODI !');
+                }, 1000);
+            }
+
+            // Scroll vers le haut
+            function setupScrollToTop() {
+                scrollToTopLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        if (this.getAttribute('href') === '#education') {
+                            e.preventDefault();
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
                             });
                         }
                     });
-                }, observerOptions);
-                
-                document.querySelectorAll('.project-card').forEach(card => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(15px)';
-                    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                    observer.observe(card);
                 });
             }
-            
-            // Gestion du viewport Android
-            function adjustViewport() {
-                const viewport = document.querySelector('meta[name="viewport"]');
-                const isPortrait = window.innerHeight > window.innerWidth;
-                
-                if (window.innerWidth <= 480) {
-                    // Petits écrans Android
-                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes');
-                } else {
-                    // Écrans moyens et grands
-                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes');
-                }
+
+            // Utilitaires
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
             }
-            
-            // Ajuster le viewport au chargement et au redimensionnement
-            adjustViewport();
-            window.addEventListener('resize', adjustViewport);
-            window.addEventListener('orientationchange', function() {
-                setTimeout(adjustViewport, 300);
-            });
-            
-            // Prévenir le zoom sur iOS et Android
-            document.addEventListener('touchmove', function(e) {
-                if (e.scale !== 1) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-            
-            // Support tactile amélioré pour Android
-            let lastTouchEnd = 0;
-            document.addEventListener('touchend', function(event) {
-                const now = (new Date()).getTime();
-                if (now - lastTouchEnd <= 300) {
-                    event.preventDefault();
-                }
-                lastTouchEnd = now;
-            }, false);
-            
-            // Feedback tactile pour les liens
-            document.querySelectorAll('.project-link, .footer-links a').forEach(link => {
-                link.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.97)';
-                });
-                
-                link.addEventListener('touchend', function() {
-                    this.style.transform = '';
-                });
-            });
-            
+
             // Détection Android pour optimisations spécifiques
             const isAndroid = /Android/i.test(navigator.userAgent);
             if (isAndroid) {
@@ -1233,9 +1781,27 @@
                 
                 // Optimisations supplémentaires pour Android
                 document.querySelectorAll('a').forEach(a => {
-                    a.style.webkitTapHighlightColor = 'rgba(52, 152, 219, 0.3)';
+                    a.style.webkitTapHighlightColor = 'rgba(79, 70, 229, 0.3)';
                 });
             }
+
+            // Détection iOS
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                document.body.classList.add('ios-device');
+            }
+
+            // API publique
+            window.ESODI_PORTFOLIO = {
+                switchCategory: switchCategory,
+                showMessage: showStatusMessage,
+                getCurrentCategory: () => config.currentCategory,
+                version: '2.0.0'
+            };
+
+            // Initialisation finale
+            adjustLayout();
+            console.log('Portefeuille ESODI initialisé avec succès 🚀');
         });
     </script>
 </body>
