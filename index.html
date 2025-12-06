@@ -1287,9 +1287,9 @@
 </head>
 <body class="no-overflow scroll-smooth">
     <!-- Bouton Retour -->
-    <a href="javascript:history.back()" class="back-button" aria-label="Retour à la page précédente" id="backButton">
+    <a href="https://jeanskodoc.github.io/BLOG/" class="back-button" aria-label="Retour au Blog ESODI" id="backButton">
         <i class="fas fa-arrow-left"></i>
-        <span>Retour</span>
+        <span>Retour au Blog</span>
     </a>
     
     <!-- Message d'état -->
@@ -1639,32 +1639,21 @@
                 
                 // Gestion du clic
                 backButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Vérifier s'il y a une page précédente dans l'historique
-                    if (document.referrer && document.referrer.includes(window.location.hostname)) {
-                        window.history.back();
-                    } else {
-                        // Redirection vers une page d'accueil par défaut
-                        window.location.href = 'https://jeanskodoc.github.io';
-                    }
-                    
                     // Feedback tactile
                     this.style.transform = 'scale(0.95)';
                     setTimeout(() => {
                         this.style.transform = '';
                     }, 150);
+                    
+                    // Afficher un message de transition
+                    showStatusMessage('Redirection vers le Blog ESODI...', 2000);
                 });
 
                 // Support clavier
                 backButton.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
-                        if (document.referrer && document.referrer.includes(window.location.hostname)) {
-                            window.history.back();
-                        } else {
-                            window.location.href = 'https://jeanskodoc.github.io';
-                        }
+                        showStatusMessage('Redirection vers le Blog ESODI...', 2000);
                     }
                 });
 
@@ -1672,6 +1661,13 @@
                 setTimeout(() => {
                     backButton.style.opacity = '1';
                 }, 500);
+                
+                // Afficher un tooltip au survol
+                backButton.addEventListener('mouseenter', function() {
+                    if (window.innerWidth >= 768) {
+                        showStatusMessage('Cliquez pour retourner au Blog ESODI', 2000);
+                    }
+                });
             }
 
             // Navigation par catégories
@@ -1885,7 +1881,7 @@
 
             function showWelcomeMessage() {
                 setTimeout(() => {
-                    showStatusMessage('👋 Bienvenue sur le portefeuille ESODI !');
+                    showStatusMessage('👋 Bienvenue sur le Portefeuille ESODI !');
                 }, 1000);
             }
 
