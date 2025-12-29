@@ -2,81 +2,137 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta name="theme-color" content="#4f46e5">
-    <!-- Optimisation Android -->
+    <!-- Optimisations mobiles avancées -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <!-- SEO et Accessibilité -->
+    <meta name="description" content="Portefeuille ESODI - Solutions digitales innovantes pour l'éducation, le logement, le commerce et la finance en Afrique">
+    <meta name="keywords" content="ESODI, solutions digitales, Afrique, développement web, applications, innovation">
+    <meta name="author" content="KOLA Maniwah Essohouna">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Portefeuille ESODI - Solutions Digitales Innovantes">
+    <meta property="og:description" content="Découvrez nos projets conçus pour transformer les défis en opportunités">
+    <meta property="og:type" content="website">
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="manifest.json">
+    
     <title>Portefeuille ESODI - Solutions Digitales Innovantes</title>
+    
+    <!-- Icônes -->
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+    
     <style>
-        /* Variables CSS - Palette moderne améliorée */
+        /* ========== VARIABLES CSS AVANCÉES ========== */
         :root {
             /* Couleurs primaires - Indigo moderne */
             --primary-color: #4f46e5;
             --primary-dark: #4338ca;
             --primary-light: #818cf8;
+            --primary-50: #eef2ff;
             
             /* Couleurs secondaires par catégorie */
             --education-color: #10b981;
             --education-dark: #059669;
             --education-light: #34d399;
+            --education-50: #ecfdf5;
             
             --housing-color: #8b5cf6;
             --housing-dark: #7c3aed;
             --housing-light: #a78bfa;
+            --housing-50: #f5f3ff;
             
             --commerce-color: #f97316;
             --commerce-dark: #ea580c;
             --commerce-light: #fb923c;
+            --commerce-50: #fff7ed;
             
             --finance-color: #0ea5e9;
             --finance-dark: #0284c7;
             --finance-light: #38bdf8;
+            --finance-50: #f0f9ff;
             
             /* Couleurs neutres - Palette gris moderne */
-            --light-color: #f8fafc;
-            --light-soft: #f1f5f9;
-            --dark-color: #0f172a;
-            --dark-soft: #1e293b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
             
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #64748b;
+            
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            --border-dark: #94a3b8;
             
             /* Ombres et effets */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.1), 0 3px 6px -1px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
             
             /* Bordures et rayons */
-            --radius-sm: 6px;
-            --radius: 12px;
+            --radius-xs: 2px;
+            --radius-sm: 4px;
+            --radius: 8px;
+            --radius-md: 12px;
             --radius-lg: 16px;
             --radius-xl: 24px;
+            --radius-2xl: 32px;
             --radius-full: 9999px;
             
             /* Transitions */
             --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
             
-            /* Espacements safe area */
-            --safe-area-inset-top: env(safe-area-inset-top);
-            --safe-area-inset-bottom: env(safe-area-inset-bottom);
-            --safe-area-inset-left: env(safe-area-inset-left);
-            --safe-area-inset-right: env(safe-area-inset-right);
+            /* Espacements */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            
+            /* Typographie échelle */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            
+            /* Safe Area */
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            
+            /* Z-index */
+            --z-dropdown: 100;
+            --z-sticky: 200;
+            --z-fixed: 300;
+            --z-modal-backdrop: 400;
+            --z-modal: 500;
+            --z-popover: 600;
+            --z-tooltip: 700;
+            --z-toast: 800;
             
             /* Dégradés */
             --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
@@ -84,14 +140,14 @@
             --gradient-housing: linear-gradient(135deg, var(--housing-color), var(--housing-dark));
             --gradient-commerce: linear-gradient(135deg, var(--commerce-color), var(--commerce-dark));
             --gradient-finance: linear-gradient(135deg, var(--finance-color), var(--finance-dark));
+            --gradient-bg: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
         }
 
-        /* Reset et styles de base */
-        * {
+        /* ========== RESET ET STYLES DE BASE ========== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             -webkit-tap-highlight-color: transparent;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -101,58 +157,101 @@
             font-size: 16px;
             scroll-behavior: smooth;
             height: 100%;
-            -webkit-overflow-scrolling: touch;
+            overflow-x: hidden;
+            text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            background: var(--light-color);
-            color: var(--gray-800);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            font-weight: 400;
             min-height: 100vh;
             min-height: -webkit-fill-available;
             overflow-x: hidden;
-            padding-top: var(--safe-area-inset-top);
-            padding-bottom: var(--safe-area-inset-bottom);
             position: relative;
-            font-weight: 400;
+            display: flex;
+            flex-direction: column;
+            padding-top: var(--safe-top);
+            padding-bottom: var(--safe-bottom);
         }
 
-        /* Container principal */
+        /* ========== TYPOGRAPHIE ========== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+        }
+
+        h1 { font-size: var(--text-3xl); }
+        h2 { font-size: var(--text-2xl); }
+        h3 { font-size: var(--text-xl); }
+        h4 { font-size: var(--text-lg); }
+
+        p {
+            margin-bottom: var(--space);
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* ========== LAYOUT CONTAINERS ========== */
         .container {
+            width: 100%;
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 max(16px, var(--safe-area-inset-left));
-            width: 100%;
-            overflow-x: hidden;
+            padding: 0 max(16px, var(--safe-left));
         }
 
-        /* Bouton Retour - Position fixe en haut à gauche */
+        .content-wrapper {
+            flex: 1 0 auto;
+            width: 100%;
+        }
+
+        /* ========== COMPONENTS ========== */
+
+        /* 1. BOUTON RETOUR */
         .back-button {
             position: fixed;
-            top: max(1rem, var(--safe-area-inset-top));
-            left: max(1rem, var(--safe-area-inset-left));
+            top: max(12px, var(--safe-top));
+            left: max(12px, var(--safe-left));
+            z-index: var(--z-fixed);
             background: var(--gradient-primary);
             color: white;
-            width: 44px;
-            height: 44px;
+            border: none;
             border-radius: var(--radius-full);
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-            transition: all var(--transition);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
             cursor: pointer;
+            transition: all var(--transition-bounce);
+            box-shadow: var(--shadow-lg);
+            font-size: 1.1rem;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
         }
 
-        .back-button:hover {
+        .back-button:hover, .back-button:focus {
             transform: translateY(-2px) scale(1.05);
             box-shadow: var(--shadow-xl);
             background: var(--primary-dark);
+            outline: none;
         }
 
         .back-button:active {
@@ -161,36 +260,22 @@
 
         .back-button span {
             display: none;
-            font-size: 0.9rem;
             font-weight: 600;
             margin-left: 8px;
+            font-size: 0.95rem;
         }
 
-        @media (min-width: 768px) {
-            .back-button {
-                width: auto;
-                height: auto;
-                padding: 0.8rem 1.2rem;
-                border-radius: var(--radius-full);
-            }
-            
-            .back-button span {
-                display: inline;
-            }
-        }
-
-        /* Header amélioré */
+        /* 2. HEADER */
         header {
             background: var(--gradient-primary);
             color: white;
-            padding: 1.5rem 0;
-            padding-top: calc(1.5rem + var(--safe-area-inset-top));
+            padding: var(--space-lg) 0;
+            padding-top: calc(var(--space-lg) + var(--safe-top));
             text-align: center;
-            box-shadow: var(--shadow-lg);
-            margin-bottom: 1.5rem;
             position: relative;
-            width: 100%;
             overflow: hidden;
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-md);
         }
 
         header::before {
@@ -209,91 +294,68 @@
         }
 
         .logo {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-            color: white;
+            font-size: 2.5rem;
+            margin-bottom: var(--space);
             display: inline-block;
-            vertical-align: middle;
-            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            animation: float 6s ease-in-out infinite;
         }
 
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            padding: 0 12px;
-            word-wrap: break-word;
-            letter-spacing: -0.5px;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .header-content h1 {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space);
             background: linear-gradient(135deg, #ffffff, #e0f2fe);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.4rem;
-                padding: 0 8px;
-            }
-            
-            .back-button {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-                top: max(0.6rem, var(--safe-area-inset-top));
-                left: max(0.6rem, var(--safe-area-inset-left));
-            }
+            color: transparent;
+            font-weight: 900;
         }
 
         .subtitle {
-            font-size: 1rem;
+            font-size: var(--text-lg);
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 16px;
-            font-weight: 400;
             line-height: 1.6;
-            word-wrap: break-word;
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Navigation par catégories - Réduite */
+        /* 3. NAVIGATION CATÉGORIES */
         .category-nav {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 1.5rem;
-            padding: 0 8px;
-            width: 100%;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            padding: 0 var(--space-sm);
         }
 
         .category-btn {
-            background: white;
-            border: 2px solid var(--gray-300);
-            padding: 0.6rem 0.8rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-light);
+            padding: var(--space-sm) var(--space);
             border-radius: var(--radius-full);
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
             transition: all var(--transition);
-            box-shadow: var(--shadow-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            min-height: 40px;
-            flex: 1;
+            gap: 8px;
+            font-size: var(--text-sm);
+            min-height: 44px;
+            flex: 1 0 auto;
             min-width: 0;
-            max-width: 160px;
-            touch-action: manipulation;
-            user-select: none;
-            -webkit-user-select: none;
+            max-width: 200px;
             position: relative;
             overflow: hidden;
-            color: var(--gray-700);
-            letter-spacing: 0.3px;
+            box-shadow: var(--shadow-sm);
+            color: var(--text-secondary);
         }
 
         .category-btn::before {
@@ -315,13 +377,9 @@
 
         .category-btn:hover, .category-btn:focus {
             transform: translateY(-2px);
-            box-shadow: var(--shadow);
-            outline: none;
+            box-shadow: var(--shadow-md);
             border-color: transparent;
-        }
-
-        .category-btn:active {
-            transform: translateY(-1px);
+            outline: none;
         }
 
         .category-btn.active {
@@ -334,25 +392,12 @@
             transform: scaleX(1);
         }
 
-        .education-btn.active {
-            background: var(--gradient-education);
-        }
-
-        .housing-btn.active {
-            background: var(--gradient-housing);
-        }
-
-        .commerce-btn.active {
-            background: var(--gradient-commerce);
-        }
-
-        .finance-btn.active {
-            background: var(--gradient-finance);
-        }
+        .education-btn.active { background: var(--gradient-education); }
+        .housing-btn.active { background: var(--gradient-housing); }
+        .commerce-btn.active { background: var(--gradient-commerce); }
+        .finance-btn.active { background: var(--gradient-finance); }
 
         .category-btn i {
-            font-size: 0.9rem;
-            min-width: 18px;
             transition: transform var(--transition);
         }
 
@@ -361,214 +406,157 @@
             transform: scale(1.1);
         }
 
-        .category-btn span {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-weight: 600;
-        }
-
-        /* Sections catégories */
+        /* 4. SECTIONS CATÉGORIES */
         .category-section {
             display: none;
-            margin-bottom: 2.5rem;
-            width: 100%;
-            animation: fadeIn 0.5s ease-out;
+            margin-bottom: var(--space-2xl);
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .category-section.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(20px) scale(0.98); 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            to { 
-                opacity: 1; 
-                transform: translateY(0) scale(1); 
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
         .category-title {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 1.2rem;
-            padding-bottom: 8px;
-            border-bottom: 2px solid;
-            font-size: 1.5rem;
-            font-weight: 800;
-            width: 100%;
-            overflow: hidden;
-            letter-spacing: -0.5px;
+            gap: var(--space);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-sm);
+            border-bottom: 3px solid;
+            font-size: var(--text-2xl);
             position: relative;
         }
 
         .category-title::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -3px;
             left: 0;
-            width: 80px;
-            height: 2px;
+            width: 100px;
+            height: 3px;
             background: currentColor;
-            opacity: 0.5;
+            opacity: 0.3;
         }
 
-        .education-title {
-            color: var(--education-color);
-            border-color: var(--education-color);
-        }
-
-        .housing-title {
-            color: var(--housing-color);
-            border-color: var(--housing-color);
-        }
-
-        .commerce-title {
-            color: var(--commerce-color);
-            border-color: var(--commerce-color);
-        }
-
-        .finance-title {
-            color: var(--finance-color);
-            border-color: var(--finance-color);
-        }
+        .education-title { color: var(--education-color); border-color: var(--education-color); }
+        .housing-title { color: var(--housing-color); border-color: var(--housing-color); }
+        .commerce-title { color: var(--commerce-color); border-color: var(--commerce-color); }
+        .finance-title { color: var(--finance-color); border-color: var(--finance-color); }
 
         .category-icon {
-            font-size: 1.5rem;
-            min-width: 30px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            font-size: 1.5em;
+            min-width: 40px;
         }
 
-        /* Grid de projets amélioré - Optimisé pour le contenu */
+        /* 5. GRID PROJETS */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: var(--space-lg);
             width: 100%;
-        }
-
-        @media (max-width: 480px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
         }
 
         .project-card {
-            background: white;
-            border-radius: var(--radius);
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-md);
             transition: all var(--transition);
+            border: 1px solid var(--border-light);
             display: flex;
             flex-direction: column;
             position: relative;
-            border: 1px solid var(--gray-200);
-            width: 100%;
-            min-height: 220px;
-            will-change: transform;
-            backface-visibility: hidden;
+            height: 100%;
+            animation: cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
             border-color: transparent;
         }
 
-        .project-card:active {
-            transform: translateY(-2px);
-        }
-
-        /* Numérotation réduite */
         .project-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
             background: var(--gradient-primary);
             color: white;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            font-size: 0.85rem;
+            font-size: var(--text-sm);
             z-index: 2;
-            box-shadow: var(--shadow-sm);
-            transition: transform var(--transition);
-        }
-
-        .project-card:hover .project-number {
-            transform: scale(1.05) rotate(5deg);
+            box-shadow: var(--shadow);
         }
 
         .project-content {
-            padding: 20px;
-            flex-grow: 1;
+            padding: var(--space-lg);
+            flex: 1;
             display: flex;
             flex-direction: column;
-            width: 100%;
-            position: relative;
-            z-index: 1;
         }
 
         .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--gray-900);
+            font-size: var(--text-xl);
+            margin-bottom: var(--space);
+            color: var(--text-primary);
             font-weight: 800;
             line-height: 1.3;
-            padding-right: 35px;
-            word-wrap: break-word;
-            letter-spacing: -0.3px;
+            padding-right: 40px;
         }
 
         .project-description {
-            color: var(--gray-600);
-            margin-bottom: 20px;
-            flex-grow: 1;
-            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            flex: 1;
+            font-size: var(--text-base);
             line-height: 1.6;
-            word-wrap: break-word;
         }
 
-        /* Bouton projet réduit */
         .project-link {
-            display: inline-block;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 10px 16px;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            font-weight: 600;
-            text-align: center;
-            transition: all var(--transition);
-            font-size: 0.9rem;
-            min-height: 44px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space) var(--space-lg);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--text-base);
+            transition: all var(--transition);
             border: none;
             cursor: pointer;
+            min-height: 48px;
             width: 100%;
-            touch-action: manipulation;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            letter-spacing: 0.3px;
         }
 
         .project-link::after {
@@ -590,31 +578,42 @@
         }
 
         .project-link:hover, .project-link:focus {
-            background: var(--gradient-primary);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             outline: none;
-            color: white;
         }
 
-        .project-link i {
-            transition: transform var(--transition);
-            font-size: 0.9rem;
+        /* Tags pour projets spécifiques */
+        .exam-types, .features-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
         }
 
-        .project-link:hover i {
-            transform: translateX(3px);
+        .exam-tag, .feature-tag {
+            background: var(--education-50);
+            color: var(--education-dark);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            border: 1px solid var(--education-light);
         }
 
-        /* Footer amélioré */
+        .project-11 .feature-tag {
+            background: var(--primary-50);
+            color: var(--primary-dark);
+            border-color: var(--primary-light);
+        }
+
+        /* 6. FOOTER */
         footer {
-            background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
+            background: linear-gradient(135deg, var(--text-primary), #1e293b);
             color: white;
-            text-align: center;
-            padding: 2.5rem 0;
-            padding-bottom: calc(2.5rem + var(--safe-area-inset-bottom));
-            margin-top: 3rem;
-            width: 100%;
+            padding: var(--space-2xl) 0;
+            padding-bottom: calc(var(--space-2xl) + var(--safe-bottom));
+            margin-top: auto;
             position: relative;
             overflow: hidden;
         }
@@ -625,521 +624,349 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 4px;
             background: var(--gradient-primary);
-            box-shadow: 0 0 15px rgba(79, 70, 229, 0.3);
         }
 
         .footer-content {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 max(16px, var(--safe-area-inset-left));
-            width: 100%;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
 
         .footer-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            word-wrap: break-word;
-            letter-spacing: -0.5px;
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space);
             background: linear-gradient(135deg, #ffffff, #e0f2fe);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: transparent;
+            font-weight: 900;
         }
 
-        .footer-content p {
-            font-size: 1rem;
-            opacity: 0.9;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            word-wrap: break-word;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        /* Informations développeur améliorées */
         .developer-info {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            text-align: left;
-            width: 100%;
-            max-width: 100%;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin: var(--space-xl) auto;
+            max-width: 600px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: var(--shadow-md);
-        }
-
-        .developer-info h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            word-wrap: break-word;
-            font-weight: 800;
-        }
-
-        .developer-info h4 i {
-            color: var(--primary-light);
-            min-width: 24px;
-            font-size: 1.1rem;
+            box-shadow: var(--shadow-lg);
         }
 
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            width: 100%;
+            gap: var(--space);
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            width: 100%;
-            word-wrap: break-word;
-            padding: 0.4rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition-fast);
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-item:hover {
-            transform: translateX(3px);
-            opacity: 1;
+            gap: var(--space);
+            text-align: left;
         }
 
         .contact-item i {
-            width: 20px;
             color: var(--primary-light);
             flex-shrink: 0;
-            margin-top: 2px;
-            font-size: 1rem;
-        }
-
-        .contact-item span {
-            flex: 1;
-            word-wrap: break-word;
-        }
-
-        .contact-item strong {
-            color: white;
-            font-weight: 700;
-            margin-right: 6px;
+            width: 24px;
         }
 
         .contact-item a {
             color: var(--primary-light);
             text-decoration: none;
-            transition: all var(--transition);
-            word-wrap: break-word;
-            display: inline-block;
-            font-weight: 600;
             position: relative;
-        }
-
-        .contact-item a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--primary-light);
-            transition: width var(--transition);
         }
 
         .contact-item a:hover {
             color: white;
-        }
-
-        .contact-item a:hover::after {
-            width: 100%;
+            text-decoration: underline;
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
-            margin: 1.5rem 0;
-            width: 100%;
+            justify-content: center;
+            gap: var(--space);
+            margin: var(--space-xl) 0;
         }
 
         .footer-links a {
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            text-decoration: none;
-            transition: all var(--transition);
-            font-size: 0.95rem;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
             display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 10px 16px;
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-weight: 600;
+            gap: 8px;
+            transition: all var(--transition);
         }
 
         .footer-links a:hover {
-            color: var(--primary-light);
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-sm);
         }
 
-        .footer-links a:active {
-            transform: translateY(0);
+        /* 7. MESSAGE D'ÉTAT */
+        .status-message {
+            position: fixed;
+            top: calc(var(--safe-top) + 80px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-100%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space) var(--space-lg);
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-xl);
+            z-index: var(--z-toast);
+            opacity: 0;
+            transition: all var(--transition);
+            max-width: 90%;
+            text-align: center;
+            font-weight: 600;
         }
 
-        .footer-links a i {
-            font-size: 1rem;
+        .status-message.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
         }
 
-        /* ========== RESPONSIVE OPTIMISÉ ========== */
-        
-        /* Petits écrans (320px - 360px) */
-        @media (max-width: 360px) {
-            html {
-                font-size: 14px;
-            }
+        /* ========== RESPONSIVE DESIGN COMPLET ========== */
+
+        /* Extra Small Devices (Phones, 320px-480px) */
+        @media (max-width: 480px) {
+            html { font-size: 14px; }
             
             .container {
-                padding: 0 max(12px, var(--safe-area-inset-left));
-            }
-            
-            header {
-                padding: 1rem 0;
-                padding-top: calc(1rem + var(--safe-area-inset-top));
-                margin-bottom: 1.2rem;
-            }
-            
-            .logo {
-                font-size: 1.8rem;
-            }
-            
-            h1 {
-                font-size: 1.2rem;
-            }
-            
-            .subtitle {
-                font-size: 0.85rem;
-                padding: 0 8px;
+                padding: 0 max(12px, var(--safe-left));
             }
             
             .back-button {
-                width: 36px;
-                height: 36px;
-                font-size: 0.9rem;
-                top: max(0.5rem, var(--safe-area-inset-top));
-                left: max(0.5rem, var(--safe-area-inset-left));
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+            
+            .header-content h1 {
+                font-size: var(--text-2xl);
+            }
+            
+            .subtitle {
+                font-size: var(--text-base);
+                padding: 0 12px;
             }
             
             .category-nav {
                 gap: 6px;
-                margin-bottom: 1.2rem;
             }
             
             .category-btn {
-                padding: 0.5rem 0.7rem;
-                font-size: 0.8rem;
-                min-height: 36px;
-                max-width: 140px;
-                gap: 4px;
-            }
-            
-            .category-btn i {
-                font-size: 0.9rem;
-                min-width: 18px;
-            }
-            
-            .category-title {
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-                gap: 8px;
-            }
-            
-            .category-icon {
-                font-size: 1.2rem;
-                min-width: 24px;
+                padding: 10px 12px;
+                font-size: var(--text-xs);
+                min-height: 40px;
+                max-width: 160px;
             }
             
             .projects-grid {
-                gap: 14px;
+                grid-template-columns: 1fr;
+                gap: var(--space);
+            }
+            
+            .project-card {
+                border-radius: var(--radius-md);
+            }
+            
+            .project-content {
+                padding: var(--space);
+            }
+            
+            .project-title {
+                font-size: var(--text-lg);
+            }
+            
+            .developer-info {
+                padding: var(--space);
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-links a {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        /* Small Devices (Landscape Phones, 481px-640px) */
+        @media (min-width: 481px) and (max-width: 640px) {
+            html { font-size: 15px; }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space);
+            }
+            
+            .category-btn {
+                max-width: 180px;
+            }
+            
+            .header-content h1 {
+                font-size: var(--text-3xl);
+            }
+        }
+
+        /* Medium Devices (Tablets, 641px-768px) */
+        @media (min-width: 641px) and (max-width: 768px) {
+            .container {
+                padding: 0 max(20px, var(--safe-left));
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-lg);
+            }
+            
+            .category-nav {
+                gap: var(--space);
+            }
+            
+            .back-button {
+                width: auto;
+                height: auto;
+                padding: 12px 20px;
+            }
+            
+            .back-button span {
+                display: inline;
+            }
+        }
+
+        /* Large Devices (Tablets Landscape, 769px-1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 max(24px, var(--safe-left));
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .category-btn {
+                max-width: 200px;
+                padding: var(--space) var(--space-lg);
+            }
+        }
+
+        /* Extra Large Devices (Desktops, 1025px-1280px) */
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 var(--space-xl);
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-xl);
+            }
+            
+            .project-card {
+                border-radius: var(--radius-xl);
+            }
+        }
+
+        /* XXL Devices (Large Desktops, 1281px+) */
+        @media (min-width: 1281px) {
+            .container {
+                max-width: 1400px;
+                padding: 0 var(--space-2xl);
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .header-content h1 {
+                font-size: var(--text-5xl);
+            }
+        }
+
+        /* Orientation Paysage Mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: var(--space) 0;
+                padding-top: calc(var(--space) + var(--safe-top));
+                margin-bottom: var(--space);
+            }
+            
+            .logo {
+                font-size: 2rem;
+                margin-bottom: var(--space-sm);
+            }
+            
+            .header-content h1 {
+                font-size: var(--text-xl);
+                margin-bottom: var(--space-sm);
+            }
+            
+            .subtitle {
+                font-size: var(--text-sm);
+            }
+            
+            .category-nav {
+                margin-bottom: var(--space);
+            }
+            
+            .projects-grid {
+                gap: var(--space-sm);
             }
             
             .project-card {
                 min-height: 200px;
-                border-radius: var(--radius-sm);
-            }
-            
-            .project-number {
-                width: 26px;
-                height: 26px;
-                font-size: 0.8rem;
-                top: 10px;
-                left: 10px;
             }
             
             .project-content {
-                padding: 16px;
-            }
-            
-            .project-title {
-                font-size: 1.1rem;
-                padding-right: 32px;
-                margin-bottom: 8px;
-            }
-            
-            .project-description {
-                font-size: 0.85rem;
-                margin-bottom: 16px;
-            }
-            
-            .project-link {
-                padding: 8px 14px;
-                font-size: 0.85rem;
-                min-height: 40px;
-                gap: 6px;
-            }
-            
-            .developer-info {
-                padding: 1.2rem;
-            }
-            
-            .developer-info h4 {
-                font-size: 1.1rem;
-                gap: 8px;
-            }
-            
-            .contact-item {
-                font-size: 0.85rem;
-                gap: 8px;
-            }
-            
-            .footer-content h3 {
-                font-size: 1.2rem;
+                padding: var(--space);
             }
         }
-        
-        /* Écrans moyens (361px - 480px) */
-        @media (min-width: 361px) and (max-width: 480px) {
-            html {
-                font-size: 15px;
-            }
-            
-            .container {
-                padding: 0 max(14px, var(--safe-area-inset-left));
-            }
-            
-            .category-nav {
-                gap: 8px;
-            }
-            
-            .category-btn {
-                padding: 0.6rem 0.8rem;
-                font-size: 0.82rem;
-                max-width: 150px;
-            }
-            
-            .projects-grid {
-                gap: 16px;
-            }
-            
-            .project-card {
-                min-height: 210px;
-            }
-        }
-        
-        /* Écrans larges (481px - 600px) */
-        @media (min-width: 481px) and (max-width: 600px) {
-            html {
-                font-size: 15.5px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-                gap: 18px;
-            }
-            
-            .category-btn {
-                padding: 0.7rem 0.9rem;
-                font-size: 0.85rem;
-            }
-        }
-        
-        /* Tablettes (601px - 768px) */
-        @media (min-width: 601px) and (max-width: 768px) {
-            html {
-                font-size: 16px;
-            }
-            
-            .container {
-                padding: 0 max(20px, var(--safe-area-inset-left));
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
-            }
-            
-            .category-btn {
-                padding: 0.8rem 1rem;
-                font-size: 0.88rem;
-                max-width: 180px;
-            }
-        }
-        
-        /* Tablettes larges (769px - 1024px) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                padding: 0 max(24px, var(--safe-area-inset-left));
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 22px;
-            }
-            
-            .category-btn {
-                max-width: 190px;
-            }
-        }
-        
-        /* Desktop (1025px+) */
-        @media (min-width: 1025px) {
-            .container {
-                max-width: 1200px;
-                padding: 0 max(32px, var(--safe-area-inset-left));
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-                gap: 24px;
-            }
-            
-            .project-card {
-                min-height: 240px;
-            }
-            
-            .project-title {
-                font-size: 1.4rem;
-            }
-            
-            .project-description {
-                font-size: 1rem;
-            }
-        }
-        
-        /* Mode paysage mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            header {
-                padding: 0.8rem 0;
-                padding-top: calc(0.8rem + var(--safe-area-inset-top));
-                margin-bottom: 1rem;
-            }
-            
-            h1 {
-                font-size: 1.2rem;
-            }
-            
-            .back-button {
-                width: 36px;
-                height: 36px;
-                font-size: 0.9rem;
-            }
-            
-            .category-nav {
-                margin-bottom: 0.8rem;
-            }
-            
-            .category-title {
-                font-size: 1.2rem;
-                margin-bottom: 0.8rem;
-            }
-            
-            .projects-grid {
-                gap: 14px;
-            }
-            
-            .project-card {
-                min-height: 180px;
-            }
-            
-            .project-content {
-                padding: 14px;
-            }
-            
-            .project-title {
-                font-size: 1.1rem;
-            }
-            
-            .project-description {
-                font-size: 0.85rem;
-                margin-bottom: 14px;
-            }
-        }
-        
-        /* Mode sombre amélioré */
+
+        /* Mode Sombre Automatique */
         @media (prefers-color-scheme: dark) {
             :root {
-                --light-color: #0f172a;
-                --light-soft: #1e293b;
-                --dark-color: #f8fafc;
-                --gray-200: #334155;
-                --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            }
-            
-            body {
-                background: var(--light-color);
-                color: var(--dark-color);
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --bg-tertiary: #334155;
+                
+                --text-primary: #f8fafc;
+                --text-secondary: #e2e8f0;
+                --text-tertiary: #cbd5e1;
+                
+                --border-light: #334155;
+                --border-medium: #475569;
+                --border-dark: #64748b;
             }
             
             .project-card {
-                background: var(--light-soft);
-                border-color: var(--gray-700);
-            }
-            
-            .project-title {
-                color: #f8fafc;
-            }
-            
-            .project-description {
-                color: #cbd5e1;
+                background: var(--bg-secondary);
+                border-color: var(--border-light);
             }
             
             .category-btn:not(.active) {
-                background: var(--light-soft);
-                color: var(--dark-color);
-                border-color: var(--gray-600);
+                background: var(--bg-secondary);
+                color: var(--text-secondary);
+                border-color: var(--border-medium);
             }
             
             .subtitle {
                 color: rgba(255, 255, 255, 0.9);
             }
-            
-            .back-button {
-                background: var(--gradient-primary);
-                border-color: rgba(255, 255, 255, 0.1);
-            }
         }
-        
-        /* Support tactile amélioré */
+
+        /* Optimisations Tactiles */
         @media (hover: none) and (pointer: coarse) {
             .project-card:hover {
                 transform: none;
@@ -1157,27 +984,15 @@
                 transform: none;
             }
             
-            .category-btn:active {
-                transform: scale(0.97);
-                transition: transform 0.1s;
-            }
-            
-            .project-link:active {
-                transform: scale(0.97);
-                transition: transform 0.1s;
-            }
-            
-            .back-button:active {
-                transform: scale(0.95);
-                transition: transform 0.1s;
-            }
-            
+            .category-btn:active,
+            .project-link:active,
+            .back-button:active,
             .footer-links a:active {
                 transform: scale(0.97);
-                background: rgba(255, 255, 255, 0.3);
+                transition: transform 0.1s;
             }
             
-            /* Augmenter les zones tactiles */
+            /* Zones tactiles agrandies */
             .category-btn,
             .project-link,
             .back-button,
@@ -1185,109 +1000,27 @@
             .contact-item a {
                 min-height: 44px;
             }
-            
-            .contact-item {
-                min-height: 40px;
-                align-items: center;
-            }
         }
-        
-        /* Prévenir les problèmes de zoom */
-        @media screen and (-webkit-min-device-pixel-ratio:0) {
+
+        /* Prévenir le zoom sur iOS */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
             select,
             textarea,
-            input {
+            input,
+            button {
                 font-size: 16px !important;
             }
         }
-        
-        /* Optimisation pour le Notch et Safe Area */
-        .safe-area-padding {
-            padding-left: var(--safe-area-inset-left, 0);
-            padding-right: var(--safe-area-inset-right, 0);
-        }
-        
-        /* Empêcher le débordement horizontal */
-        .no-overflow {
-            overflow-x: hidden;
-            max-width: 100vw;
-        }
-        
-        /* Animation pour les cartes */
-        @keyframes cardAppear {
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
+
+        /* Support pour les appareils avec Notch */
+        @supports (padding: max(0px)) {
+            .container {
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
             }
         }
-        
-        .project-card {
-            animation: cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            opacity: 0;
-        }
-        
-        /* Styles pour le mode défilement fluide */
-        .scroll-smooth {
-            scroll-behavior: smooth;
-        }
-        
-        /* Amélioration du focus pour l'accessibilité */
-        .category-btn:focus-visible,
-        .project-link:focus-visible,
-        .footer-links a:focus-visible,
-        .back-button:focus-visible {
-            outline: 2px solid var(--primary-color);
-            outline-offset: 1px;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-        }
-        
-        /* Loading state pour les cartes */
-        .project-card.loading {
-            background: linear-gradient(90deg, 
-                var(--gray-200) 25%, 
-                var(--gray-300) 50%, 
-                var(--gray-200) 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-        
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        
-        /* Styles pour les messages d'état */
-        .status-message {
-            position: fixed;
-            top: calc(var(--safe-area-inset-top) + 70px);
-            right: 16px;
-            left: 16px;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            font-weight: 600;
-            z-index: 999;
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: all var(--transition);
-            max-width: 350px;
-            margin: 0 auto;
-            font-size: 0.9rem;
-        }
-        
-        .status-message.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        /* Animation pour le bouton retour */
+
+        /* Animations d'entrée */
         @keyframes slideInLeft {
             from {
                 transform: translateX(-100%);
@@ -1298,396 +1031,351 @@
                 opacity: 1;
             }
         }
-        
-        .back-button {
-            animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
-            opacity: 0;
+
+        /* Accessibilité : Focus visible */
+        .category-btn:focus-visible,
+        .project-link:focus-visible,
+        .back-button:focus-visible,
+        .footer-links a:focus-visible {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.3);
         }
-        
-        /* Optimisations pour une meilleure lisibilité */
-        .project-content {
-            padding-top: 24px;
+
+        /* Loading states */
+        .project-card.loading {
+            background: linear-gradient(90deg, 
+                var(--border-light) 25%, 
+                var(--border-medium) 50%, 
+                var(--border-light) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
         }
-        
-        .project-number {
-            top: 10px;
-            left: 10px;
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
-        
-        .project-title {
-            padding-right: 30px;
-            margin-bottom: 12px;
+
+        /* Optimisations de performance */
+        .will-change {
+            will-change: transform, opacity;
         }
-        
-        .project-description {
-            line-height: 1.5;
-            margin-bottom: 16px;
+
+        /* Scrollbar personnalisée */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: var(--radius-full);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Print styles */
+        @media print {
+            .back-button,
+            .category-nav,
+            .footer-links,
+            .status-message {
+                display: none !important;
+            }
+            
+            .project-card {
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+            
+            a {
+                color: #000 !important;
+                text-decoration: underline !important;
+            }
         }
     </style>
 </head>
-<body class="no-overflow scroll-smooth">
+<body>
     <!-- Bouton Retour -->
-    <a href="https://jeanskodoc.github.io/BLOG/" class="back-button" aria-label="Retour au Blog ESODI" id="backButton">
+    <a href="https://jeanskodoc.github.io/BLOG/" class="back-button" id="backButton" aria-label="Retour au Blog ESODI">
         <i class="fas fa-arrow-left"></i>
-        <span>Retour au Blog</span>
+        <span>Retour</span>
     </a>
-    
+
     <!-- Message d'état -->
     <div id="statusMessage" class="status-message" aria-live="polite"></div>
 
-    <header class="safe-area-padding">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <div class="logo">
-                <i class="fas fa-laptop-code"></i>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h1>Portefeuille ESODI</h1>
+                <p class="subtitle">Solutions digitales innovantes regroupées par domaines d'expertise. Découvrez des projets conçus pour transformer les défis en opportunités.</p>
             </div>
-            <h1>Portefeuille ESODI</h1>
-            <p class="subtitle">Solutions digitales innovantes regroupées par domaines d'expertise. Découvrez des projets conçus pour transformer les défis en opportunités.</p>
         </div>
     </header>
 
-    <main class="container safe-area-padding">
-        <!-- Navigation par catégories -->
-        <nav class="category-nav" aria-label="Navigation par catégories">
-            <button class="category-btn education-btn active" data-category="education" aria-label="Voir les projets éducation">
-                <i class="fas fa-graduation-cap"></i> <span>ÉDUCATION</span>
-            </button>
-            <button class="category-btn housing-btn" data-category="housing" aria-label="Voir les projets logement">
-                <i class="fas fa-home"></i> <span>LOGEMENT</span>
-            </button>
-            <button class="category-btn commerce-btn" data-category="commerce" aria-label="Voir les projets commerce">
-                <i class="fas fa-shopping-cart"></i> <span>COMMERCE</span>
-            </button>
-            <button class="category-btn finance-btn" data-category="finance" aria-label="Voir les projets finance">
-                <i class="fas fa-chart-line"></i> <span>FINANCE</span>
-            </button>
-        </nav>
+    <!-- Contenu Principal -->
+    <main class="content-wrapper">
+        <div class="container">
+            <!-- Navigation Catégories -->
+            <nav class="category-nav" aria-label="Navigation par catégories">
+                <button class="category-btn education-btn active" data-category="education" aria-label="Voir les projets Éducation">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>ÉDUCATION</span>
+                </button>
+                <button class="category-btn housing-btn" data-category="housing" aria-label="Voir les projets Logement">
+                    <i class="fas fa-home"></i>
+                    <span>LOGEMENT</span>
+                </button>
+                <button class="category-btn commerce-btn" data-category="commerce" aria-label="Voir les projets Commerce">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>COMMERCE</span>
+                </button>
+                <button class="category-btn finance-btn" data-category="finance" aria-label="Voir les projets Finance">
+                    <i class="fas fa-chart-line"></i>
+                    <span>FINANCE</span>
+                </button>
+            </nav>
 
-        <!-- Projets Éducation -->
-        <section id="education" class="category-section active" aria-label="Projets Éducation">
-            <h2 class="category-title education-title">
-                <i class="fas fa-graduation-cap category-icon"></i> <span>Solutions Éducatives</span>
-            </h2>
-            <div class="projects-grid">
-                <!-- Projet 1 -->
-                <article class="project-card">
-                    <div class="project-number">1</div>
-                    <div class="project-content">
-                        <h3 class="project-title">COURS DIFFUSÉ</h3>
-                        <p class="project-description">Solution complète pour présenter vos leçons de manière professionnelle et interactive dans vos classes.</p>
-                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P1.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Cours Diffusé">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 2 -->
-                <article class="project-card">
-                    <div class="project-number">2</div>
-                    <div class="project-content">
-                        <h3 class="project-title">École du 21ᵉ Siècle</h3>
-                        <p class="project-description">Plateforme logicielle complète pour la gestion et l'administration des écoles modernes.</p>
-                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P2.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet École du 21ᵉ Siècle">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 3 -->
-                <article class="project-card">
-                    <div class="project-number">3</div>
-                    <div class="project-content">
-                        <h3 class="project-title">LaTeX - Documents Académiques</h3>
-                        <p class="project-description">Outils et templates pour la rédaction professionnelle de rapports, mémoires et présentations en LaTeX.</p>
-                        <a href="https://jeanskodoc.github.io/PUBLISHED-/P3.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet LaTeX">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 4 -->
-                <article class="project-card">
-                    <div class="project-number">4</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Répétitions & École en Ligne</h3>
-                        <p class="project-description">Plateforme complète d'enseignement en ligne avec suivi personnalisé des progrès des étudiants.</p>
-                        <a href="https://jeanskodoc.github.io/EPT/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Répétitions en Ligne">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 5 -->
-                <article class="project-card">
-                    <div class="project-number">5</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gestion des Emplois du Temps</h3>
-                        <p class="project-description">Outil intelligent de gestion des emplois du temps et tableaux de services pour établissements éducatifs.</p>
-                        <a href="https://jeanskodoc.github.io/Emploi-du-temps-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Emplois du Temps">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 6 -->
-                <article class="project-card">
-                    <div class="project-number">6</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Modèle Pédagogique Innovant</h3>
-                        <p class="project-description">Framework complet avec outils de planification et de suivi pour enseignants modernes.</p>
-                        <a href="https://jeanskodoc.github.io/ENSEIGNANT-MODEL/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Modèle Pédagogique">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 7 -->
-                <article class="project-card">
-                    <div class="project-number">7</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Tontine Équilibrée</h3>
-                        <p class="project-description">Système de gestion de tontine équitable et transparente pour groupes d'épargne communautaire.</p>
-                        <a href="https://jeanskodoc.github.io/TONTINE/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Tontine Équilibrée">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 8 -->
-                <article class="project-card">
-                    <div class="project-number">8</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Librairie Numérique</h3>
-                        <p class="project-description">Plateforme de distribution de livres électroniques avec système de recherche avancé et recommandations.</p>
-                        <a href="https://jeanskodoc.github.io/EBOOK-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Librairie Numérique">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 9 -->
-                <article class="project-card">
-                    <div class="project-number">9</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gestion de Fiches Pédagogiques</h3>
-                        <p class="project-description">Application complète de création, gestion et partage de fiches de leçons pour enseignants.</p>
-                        <a href="https://jeanskodoc.github.io/ENS-R/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Fiches Pédagogiques">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                <!-- Projet 10 -->
-<article class="project-card project-10">
-    <div class="project-number">10</div>
-    <div class="project-content">
-        <h3 class="project-title">Gestion des Examens Blancs</h3>
-        <p class="project-description">Plateforme complète pour l'organisation et la gestion des examens blancs BEPC, BAC1 et BAC2.</p>
-        <a href="https://jeanskodoc.github.io/BEB/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la gestion des examens blancs">
-            Explorer le projet <i class="fas fa-external-link-alt"></i>
-        </a>
-        <div class="exam-types">
-            <span class="exam-tag">BEPC</span>
-            <span class="exam-tag">BAC1</span>
-            <span class="exam-tag">BAC2</span>
+            <!-- Sections de Projets -->
+            <!-- Éducation -->
+            <section id="education" class="category-section active" aria-labelledby="education-title">
+                <h2 class="category-title education-title" id="education-title">
+                    <i class="fas fa-graduation-cap category-icon"></i>
+                    <span>Solutions Éducatives</span>
+                </h2>
+                <div class="projects-grid">
+                    <!-- Projets éducation (1-13) -->
+                    <article class="project-card" style="animation-delay: 0.1s">
+                        <div class="project-number">1</div>
+                        <div class="project-content">
+                            <h3 class="project-title">COURS DIFFUSÉ</h3>
+                            <p class="project-description">Solution complète pour présenter vos leçons de manière professionnelle et interactive dans vos classes.</p>
+                            <a href="https://jeanskodoc.github.io/PUBLISHED-/P1.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Cours Diffusé">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Répéter pour les projets 2-13 avec les mêmes modifications -->
+                    <!-- Projet 2 -->
+                    <article class="project-card" style="animation-delay: 0.2s">
+                        <div class="project-number">2</div>
+                        <div class="project-content">
+                            <h3 class="project-title">École du 21ᵉ Siècle</h3>
+                            <p class="project-description">Plateforme logicielle complète pour la gestion et l'administration des écoles modernes.</p>
+                            <a href="https://jeanskodoc.github.io/PUBLISHED-/P2.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet École du 21ᵉ Siècle">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 10 -->
+                    <article class="project-card project-10" style="animation-delay: 1s">
+                        <div class="project-number">10</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Gestion des Examens Blancs</h3>
+                            <p class="project-description">Plateforme complète pour l'organisation et la gestion des examens blancs BEPC, BAC1 et BAC2.</p>
+                            <a href="https://jeanskodoc.github.io/BEB/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la gestion des examens blancs">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <div class="exam-types">
+                                <span class="exam-tag">BEPC</span>
+                                <span class="exam-tag">BAC1</span>
+                                <span class="exam-tag">BAC2</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projet 11 -->
+                    <article class="project-card project-11" style="animation-delay: 1.1s">
+                        <div class="project-number">11</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Gestion d'Écoles Supérieures</h3>
+                            <p class="project-description">Système complet de gestion administrative pour établissements d'enseignement supérieur et universités.</p>
+                            <a href="https://jeanskodoc.github.io/GESTION-D-coles-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la gestion d'écoles supérieures">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <div class="features-tags">
+                                <span class="feature-tag">Étudiants</span>
+                                <span class="feature-tag">Enseignants</span>
+                                <span class="feature-tag">Cours</span>
+                                <span class="feature-tag">Administration</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projet 12 -->
+                    <article class="project-card project-12" style="animation-delay: 1.2s">
+                        <div class="project-number">12</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Géo-localisation d'écoles</h3>
+                            <p class="project-description">Système complet de cartographie et géolocalisations d'établissement scolaires.</p>
+                            <a href="https://jeanskodoc.github.io/CARTOGRAPHIE-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la géolocalisation d'écoles">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <div class="features-tags">
+                                <span class="feature-tag">Chef d'établissement</span>
+                                <span class="feature-tag">Enseignants</span>
+                                <span class="feature-tag">Inspecteur</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Projet 13 -->
+                    <article class="project-card project-13" style="animation-delay: 1.3s">
+                        <div class="project-number">13</div>
+                        <div class="project-content">
+                            <h3 class="project-title">COLLABORATION Enseignants-Inspecteurs</h3>
+                            <p class="project-description">Système de contrôle et d'échanges entres enseignants et inspecteurs.</p>
+                            <a href="https://jeanskodoc.github.io/ENS-INSPEDS/index.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la collaboration enseignants-inspecteurs">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <div class="features-tags">
+                                <span class="feature-tag">Enseignants</span>
+                                <span class="feature-tag">Inspecteurs</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Logement -->
+            <section id="housing" class="category-section" aria-labelledby="housing-title">
+                <h2 class="category-title housing-title" id="housing-title">
+                    <i class="fas fa-home category-icon"></i>
+                    <span>Solutions Immobilières</span>
+                </h2>
+                <div class="projects-grid">
+                    <!-- Projet 1 Logement -->
+                    <article class="project-card" style="animation-delay: 0.1s">
+                        <div class="project-number">1</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Gestion Immobilière Complète</h3>
+                            <p class="project-description">Système intégré de gestion immobilière avec suivi des loyers, entretien, contrats et rapports financiers.</p>
+                            <a href="https://jeanskodoc.github.io/RE-U-DE-LOYER/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion Immobilière">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Commerce -->
+            <section id="commerce" class="category-section" aria-labelledby="commerce-title">
+                <h2 class="category-title commerce-title" id="commerce-title">
+                    <i class="fas fa-shopping-cart category-icon"></i>
+                    <span>Solutions Commerciales</span>
+                </h2>
+                <div class="projects-grid">
+                    <!-- Projets commerce (1-4) -->
+                    <article class="project-card" style="animation-delay: 0.1s">
+                        <div class="project-number">1</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Gestion de Boutique</h3>
+                            <p class="project-description">Solution complète de gestion d'inventaire, de ventes et de clientèle pour boutiques physiques et en ligne.</p>
+                            <a href="https://jeanskodoc.github.io/E-Commerce-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion de Boutique">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2 Commerce -->
+                    <article class="project-card" style="animation-delay: 0.2s">
+                        <div class="project-number">2</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Boutique en Ligne</h3>
+                            <p class="project-description">Plateforme e-commerce complète avec gestion des produits, panier, paiement sécurisé et suivi des commandes.</p>
+                            <a href="https://jeanskodoc.github.io/Ma-boutique-en-ligne-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Boutique en Ligne">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Finance -->
+            <section id="finance" class="category-section" aria-labelledby="finance-title">
+                <h2 class="category-title finance-title" id="finance-title">
+                    <i class="fas fa-chart-line category-icon"></i>
+                    <span>Solutions Financières</span>
+                </h2>
+                <div class="projects-grid">
+                    <!-- Projets finance (1-3) -->
+                    <article class="project-card" style="animation-delay: 0.1s">
+                        <div class="project-number">1</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Gestion Financière Personnelle</h3>
+                            <p class="project-description">Application complète de gestion financière avec suivi des dépenses, budget et objectifs d'épargne.</p>
+                            <a href="https://jeanskodoc.github.io/-CONOMIE-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion Financière">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2 Finance -->
+                    <article class="project-card" style="animation-delay: 0.2s">
+                        <div class="project-number">2</div>
+                        <div class="project-content">
+                            <h3 class="project-title">Carte Virtuelle Togolaise</h3>
+                            <p class="project-description">Solution innovante de carte de paiement virtuelle sécurisée adaptée au marché togolais.</p>
+                            <a href="https://jeanskodoc.github.io/Carte-virtuelle-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Carte Virtuelle">
+                                Explorer le projet <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
         </div>
-    </div>
-</article>
-
-<!-- Projet 11 -->
-<article class="project-card project-11">
-    <div class="project-number">11</div>
-    <div class="project-content">
-        <h3 class="project-title">Gestion d'Écoles Supérieures</h3>
-        <p class="project-description">Système complet de gestion administrative pour établissements d'enseignement supérieur et universités.</p>
-        <a href="https://jeanskodoc.github.io/GESTION-D-coles-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la gestion d'écoles supérieures">
-            Explorer le projet <i class="fas fa-external-link-alt"></i>
-        </a>
-        <div class="features-tags">
-            <span class="feature-tag">Étudiants</span>
-            <span class="feature-tag">Enseignants</span>
-            <span class="feature-tag">Cours</span>
-            <span class="feature-tag">Administration</span>
-        </div>
-    </div>
-</article>
- <!-- Projet 12 -->
-<article class="project-card project-12">
-    <div class="project-number">12</div>
-    <div class="project-content">
-        <h3 class="project-title">Géo-localisation d'écoles</h3>
-        <p class="project-description">Système complet de cartographie et géolocalisations d'établissement scolaires.</p>
-        <a href="https://jeanskodoc.github.io/CARTOGRAPHIE-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la gestion d'écoles supérieures">
-            Explorer le projet <i class="fas fa-external-link-alt"></i>
-        </a>
-        <div class="features-tags">
-            <span class="feature-tag">Chef d'établissement </span>
-            <span class="feature-tag">Enseignants</span>
-            <span class="feature-tag">Inspecteur</span>
-        </div>
-    </div>
-</article>   
-     <!-- Projet 13 -->
-<article class="project-card project-13">
-    <div class="project-number">13</div>
-    <div class="project-content">
-        <h3 class="project-title">COLLABORATION Enseignants-Inspecteurs</h3>
-        <p class="project-description">système de contrôle et d'échanges entres enseignants et inspecteurs.</p>
-        <a href="https://jeanskodoc.github.io/ENS-INSPEDS/index.html" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir la gestion d'écoles supérieures">
-            Explorer le projet <i class="fas fa-external-link-alt"></i>
-        </a>
-        <div class="features-tags">
-            <span class="feature-tag">Enseignants</span>
-            <span class="feature-tag">Inspecteurs</span>
-        </div>
-    </div>
-</article>                           
-            </div>
-        </section>
-
-        <!-- Projets Logement -->
-        <section id="housing" class="category-section" aria-label="Projets Logement">
-            <h2 class="category-title housing-title">
-                <i class="fas fa-home category-icon"></i> <span>Solutions Immobilières</span>
-            </h2>
-            <div class="projects-grid">
-                <!-- Projet 1 -->
-                <article class="project-card">
-                    <div class="project-number">1</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gestion Immobilière Complète</h3>
-                        <p class="project-description">Système intégré de gestion immobilière avec suivi des loyers, entretien, contrats et rapports financiers.</p>
-                        <a href="https://jeanskodoc.github.io/RE-U-DE-LOYER/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion Immobilière">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Projets Commerce -->
-        <section id="commerce" class="category-section" aria-label="Projets Commerce">
-            <h2 class="category-title commerce-title">
-                <i class="fas fa-shopping-cart category-icon"></i> <span>Solutions Commerciales</span>
-            </h2>
-            <div class="projects-grid">
-                <!-- Projet 1 -->
-                <article class="project-card">
-                    <div class="project-number">1</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gestion de Boutique</h3>
-                        <p class="project-description">Solution complète de gestion d'inventaire, de ventes et de clientèle pour boutiques physiques et en ligne.</p>
-                        <a href="https://jeanskodoc.github.io/E-Commerce-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion de Boutique">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 2 -->
-                <article class="project-card">
-                    <div class="project-number">2</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Boutique en Ligne</h3>
-                        <p class="project-description">Plateforme e-commerce complète avec gestion des produits, panier, paiement sécurisé et suivi des commandes.</p>
-                        <a href="https://jeanskodoc.github.io/Ma-boutique-en-ligne-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Boutique en Ligne">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 3 -->
-                <article class="project-card">
-                    <div class="project-number">3</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Système Transport-Commande</h3>
-                        <p class="project-description">Solution de gestion de commandes et de livraisons optimisée pour les services de transport.</p>
-                        <a href="https://jeanskodoc.github.io/transport-Togo-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Transport-Commande">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 4 -->
-                <article class="project-card">
-                    <div class="project-number">4</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Facturation Digitale</h3>
-                        <p class="project-description">Système de génération et gestion de factures et reçus numériques avec suivi automatisé des paiements.</p>
-                        <a href="https://jeanskodoc.github.io/Factures-digitalis-es/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Facturation Digitale">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Projets Finance -->
-        <section id="finance" class="category-section" aria-label="Projets Finance">
-            <h2 class="category-title finance-title">
-                <i class="fas fa-chart-line category-icon"></i> <span>Solutions Financières</span>
-            </h2>
-            <div class="projects-grid">
-                <!-- Projet 1 -->
-                <article class="project-card">
-                    <div class="project-number">1</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Gestion Financière Personnelle</h3>
-                        <p class="project-description">Application complète de gestion financière avec suivi des dépenses, budget et objectifs d'épargne.</p>
-                        <a href="https://jeanskodoc.github.io/-CONOMIE-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion Financière">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 2 -->
-                <article class="project-card">
-                    <div class="project-number">2</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Carte Virtuelle Togolaise</h3>
-                        <p class="project-description">Solution innovante de carte de paiement virtuelle sécurisée adaptée au marché togolais.</p>
-                        <a href="https://jeanskodoc.github.io/Carte-virtuelle-/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Carte Virtuelle">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <!-- Projet 3 -->
-                <article class="project-card">
-                    <div class="project-number">3</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Suivi & Gestion d'Agents</h3>
-                        <p class="project-description">Système de suivi et de gestion des performances pour agents d'institutions financières.</p>
-                        <a href="https://jeanskodoc.github.io/CEET-TDE/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Voir le projet Gestion d'Agents">
-                            Explorer le projet <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
     </main>
 
-    <footer class="safe-area-padding">
+    <!-- Footer -->
+    <footer>
         <div class="container footer-content">
             <h3>Portefeuille Digital ESODI</h3>
             <p>Une collection exclusive de solutions digitales innovantes conçues pour transformer les secteurs de l'éducation, du logement, du commerce et de la finance en Afrique.</p>
             
-            <!-- Informations du développeur -->
+            <!-- Informations développeur -->
             <div class="developer-info">
                 <h4><i class="fas fa-user-tie"></i> Développeur & Concepteur</h4>
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-user"></i>
-                        <span><strong>Nom :</strong> KOLA Maniwah Essohouna</span>
+                        <div>
+                            <strong>Nom :</strong> KOLA Maniwah Essohouna
+                        </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span><strong>Localisation :</strong> KARA - Togo 🇹🇬</span>
+                        <div>
+                            <strong>Localisation :</strong> KARA - Togo 🇹🇬
+                        </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span><strong>Email :</strong> <a href="mailto:jeanskodoc22@gmail.com">jeanskodoc22@gmail.com</a></span>
+                        <div>
+                            <strong>Email :</strong> 
+                            <a href="mailto:jeanskodoc22@gmail.com">jeanskodoc22@gmail.com</a>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-whatsapp"></i>
-                        <span><strong>WhatsApp :</strong> <a href="https://wa.me/22892871605" target="_blank">+228 92 87 16 05</a></span>
+                        <div>
+                            <strong>WhatsApp :</strong> 
+                            <a href="https://wa.me/22892871605" target="_blank" rel="noopener noreferrer">+228 92 87 16 05</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1696,357 +1384,398 @@
                 <a href="mailto:jeanskodoc22@gmail.com" aria-label="Contact par email">
                     <i class="fas fa-envelope"></i> Contact
                 </a>
-                <a href="#education" class="scroll-to-top" aria-label="Voir les projets éducation">
+                <a href="#education" class="scroll-to-top" aria-label="Retourner aux projets Éducation">
                     <i class="fas fa-graduation-cap"></i> Éducation
                 </a>
-                <a href="https://github.com/jeanskodoc" target="_blank" rel="noopener noreferrer" aria-label="Visiter GitHub">
+                <a href="https://github.com/jeanskodoc" target="_blank" rel="noopener noreferrer" aria-label="Visiter le GitHub">
                     <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
+            
             <p>&copy; 2023-2024 ESODI - Tous droits réservés | Made with ❤️ in Togo</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Configuration
-            const config = {
-                storageKey: 'esodi_portfolio_state',
-                animationsEnabled: true,
-                currentCategory: 'education'
-            };
+        // Configuration globale
+        const CONFIG = {
+            storageKey: 'esodi_portfolio_v2',
+            animationsEnabled: true,
+            currentCategory: 'education',
+            touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+            isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream,
+            isAndroid: /Android/.test(navigator.userAgent)
+        };
 
-            // Éléments DOM
-            const backButton = document.getElementById('backButton');
-            const categoryButtons = document.querySelectorAll('.category-btn');
-            const categorySections = document.querySelectorAll('.category-section');
-            const statusMessage = document.getElementById('statusMessage');
-            const projectCards = document.querySelectorAll('.project-card');
-            const scrollToTopLinks = document.querySelectorAll('.scroll-to-top');
+        // Éléments DOM
+        const DOM = {
+            backButton: document.getElementById('backButton'),
+            statusMessage: document.getElementById('statusMessage'),
+            categoryButtons: document.querySelectorAll('.category-btn'),
+            categorySections: document.querySelectorAll('.category-section'),
+            projectCards: document.querySelectorAll('.project-card'),
+            scrollToTopLinks: document.querySelectorAll('.scroll-to-top')
+        };
 
-            // Initialisation
-            initPortfolio();
+        // État de l'application
+        const STATE = {
+            currentCategory: CONFIG.currentCategory,
+            lastScrollPosition: 0,
+            isAnimating: false
+        };
 
-            // Fonction d'initialisation
-            function initPortfolio() {
-                setupBackButton();
-                setupCategoryNavigation();
-                setupAnimations();
-                setupEventListeners();
-                restoreSavedState();
-                showWelcomeMessage();
-                setupScrollToTop();
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+            setupEventListeners();
+            restoreState();
+            showWelcomeMessage();
+            
+            // Optimisations spécifiques aux appareils
+            if (CONFIG.isIOS) optimizeForIOS();
+            if (CONFIG.isAndroid) optimizeForAndroid();
+            if (CONFIG.touchSupport) optimizeForTouch();
+            
+            console.log('ESODI Portfolio v2.0 initialisé');
+        });
+
+        // Fonction d'initialisation principale
+        function initApp() {
+            // Initialiser les animations des cartes
+            if (CONFIG.animationsEnabled) {
+                initCardAnimations();
             }
+            
+            // Initialiser la navigation
+            initNavigation();
+            
+            // Initialiser le bouton retour
+            initBackButton();
+            
+            // Initialiser le scroll to top
+            initScrollToTop();
+            
+            // Détecter les changements d'orientation
+            initOrientationDetection();
+        }
 
-            // Configuration du bouton retour
-            function setupBackButton() {
-                if (!backButton) return;
+        // Initialiser les animations des cartes
+        function initCardAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+            
+            DOM.projectCards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Initialiser la navigation
+        function initNavigation() {
+            DOM.categoryButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (STATE.isAnimating) return;
+                    
+                    const category = button.dataset.category;
+                    if (category && category !== STATE.currentCategory) {
+                        switchCategory(category);
+                    }
+                });
                 
-                // Gestion du clic
-                backButton.addEventListener('click', function(e) {
-                    // Feedback tactile
-                    this.style.transform = 'scale(0.95)';
+                // Support clavier
+                button.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        button.click();
+                    }
+                });
+            });
+        }
+
+        // Changer de catégorie
+        function switchCategory(categoryId) {
+            STATE.isAnimating = true;
+            STATE.currentCategory = categoryId;
+            
+            // Mettre à jour les boutons
+            DOM.categoryButtons.forEach(btn => {
+                const isActive = btn.dataset.category === categoryId;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-current', isActive);
+            });
+            
+            // Mettre à jour les sections
+            DOM.categorySections.forEach(section => {
+                const isActive = section.id === categoryId;
+                section.classList.toggle('active', isActive);
+                
+                if (isActive) {
+                    // Animation de transition
+                    section.style.animation = 'fadeInUp 0.4s ease-out';
+                    
+                    // Scroll doux sur mobile
+                    if (window.innerWidth <= 768) {
+                        setTimeout(() => {
+                            window.scrollTo({
+                                top: section.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    }
+                }
+            });
+            
+            // Sauvegarder l'état
+            saveState();
+            
+            // Afficher un message
+            showStatusMessage(`Catégorie : ${getCategoryName(categoryId)}`);
+            
+            // Réinitialiser l'animation
+            setTimeout(() => {
+                STATE.isAnimating = false;
+            }, 400);
+        }
+
+        // Obtenir le nom d'une catégorie
+        function getCategoryName(categoryId) {
+            const names = {
+                education: 'Éducation',
+                housing: 'Logement',
+                commerce: 'Commerce',
+                finance: 'Finance'
+            };
+            return names[categoryId] || categoryId;
+        }
+
+        // Initialiser le bouton retour
+        function initBackButton() {
+            if (!DOM.backButton) return;
+            
+            DOM.backButton.addEventListener('click', (e) => {
+                // Feedback visuel
+                e.currentTarget.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    e.currentTarget.style.transform = '';
+                }, 150);
+                
+                // Message de confirmation
+                showStatusMessage('Redirection vers le blog...', 1500);
+            });
+            
+            // Tooltip au survol
+            DOM.backButton.addEventListener('mouseenter', () => {
+                if (window.innerWidth >= 768) {
+                    showStatusMessage('Retour au blog ESODI', 2000);
+                }
+            });
+        }
+
+        // Initialiser le scroll to top
+        function initScrollToTop() {
+            DOM.scrollToTopLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+
+        // Détection d'orientation
+        function initOrientationDetection() {
+            window.addEventListener('orientationchange', () => {
+                setTimeout(() => {
+                    adjustLayout();
+                }, 300);
+            });
+            
+            window.addEventListener('resize', debounce(adjustLayout, 250));
+        }
+
+        // Ajuster le layout
+        function adjustLayout() {
+            // Ajuster les safe areas
+            document.documentElement.style.setProperty('--safe-top', 'env(safe-area-inset-top, 0px)');
+            document.documentElement.style.setProperty('--safe-bottom', 'env(safe-area-inset-bottom, 0px)');
+            
+            // Ajuster le bouton retour
+            if (DOM.backButton) {
+                if (window.innerWidth <= 480) {
+                    DOM.backButton.style.top = 'max(12px, env(safe-area-inset-top, 12px))';
+                    DOM.backButton.style.left = 'max(12px, env(safe-area-inset-left, 12px))';
+                } else {
+                    DOM.backButton.style.top = 'max(16px, env(safe-area-inset-top, 16px))';
+                    DOM.backButton.style.left = 'max(16px, env(safe-area-inset-left, 16px))';
+                }
+            }
+        }
+
+        // Configuration des événements
+        function setupEventListeners() {
+            // Prévenir le zoom sur iOS
+            document.addEventListener('touchstart', (e) => {
+                if (e.touches.length > 1) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+            
+            // Prévenir le double-tap zoom
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', (e) => {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    e.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+            
+            // Feedback tactile amélioré
+            document.querySelectorAll('.project-link, .footer-links a').forEach(link => {
+                link.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                link.addEventListener('touchend', function() {
                     setTimeout(() => {
                         this.style.transform = '';
                     }, 150);
-                    
-                    // Afficher un message de transition
-                    showStatusMessage('Redirection vers le Blog ESODI...', 2000);
                 });
+            });
+            
+            // Gestionnaire d'erreurs
+            window.addEventListener('error', handleError);
+            window.addEventListener('unhandledrejection', handlePromiseRejection);
+        }
 
-                // Support clavier
-                backButton.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        showStatusMessage('Redirection vers le Blog ESODI...', 2000);
-                    }
-                });
+        // Gestion des erreurs
+        function handleError(error) {
+            console.error('Erreur:', error);
+            showStatusMessage('Une erreur est survenue', 3000);
+        }
 
-                // Animation d'entrée
-                setTimeout(() => {
-                    backButton.style.opacity = '1';
-                }, 500);
-                
-                // Afficher un tooltip au survol
-                backButton.addEventListener('mouseenter', function() {
-                    if (window.innerWidth >= 768) {
-                        showStatusMessage('Cliquez pour retourner au Blog ESODI', 2000);
-                    }
-                });
+        function handlePromiseRejection(event) {
+            console.error('Promesse rejetée:', event.reason);
+        }
+
+        // Optimisations iOS
+        function optimizeForIOS() {
+            document.body.classList.add('ios-device');
+            
+            // Corrections spécifiques iOS
+            document.querySelectorAll('input, textarea, select').forEach(el => {
+                el.style.fontSize = '16px';
+            });
+        }
+
+        // Optimisations Android
+        function optimizeForAndroid() {
+            document.body.classList.add('android-device');
+            
+            // Améliorer le feedback tactile
+            document.querySelectorAll('a, button').forEach(el => {
+                el.style.webkitTapHighlightColor = 'rgba(79, 70, 229, 0.2)';
+            });
+        }
+
+        // Optimisations tactiles
+        function optimizeForTouch() {
+            document.body.classList.add('touch-device');
+            
+            // Désactiver les animations au hover sur mobile
+            if (window.matchMedia('(hover: none)').matches) {
+                document.body.classList.add('no-hover');
             }
+        }
 
-            // Navigation par catégories
-            function setupCategoryNavigation() {
-                categoryButtons.forEach(button => {
-                    // Gestion du clic
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const categoryId = this.getAttribute('data-category');
-                        switchCategory(categoryId);
-                        
-                        // Feedback tactile
-                        this.style.transform = 'scale(0.97)';
-                        setTimeout(() => {
-                            this.style.transform = '';
-                        }, 150);
-                    });
-
-                    // Support clavier
-                    button.addEventListener('keydown', function(e) {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            const categoryId = this.getAttribute('data-category');
-                            switchCategory(categoryId);
-                        }
-                    });
-
-                    // Prévenir le double-tap zoom
-                    button.addEventListener('touchstart', function(e) {
-                        if (e.touches.length > 1) {
-                            e.preventDefault();
-                        }
-                    }, { passive: false });
-                });
-            }
-
-            // Changer de catégorie
-            function switchCategory(categoryId) {
-                // Mettre à jour les boutons
-                categoryButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.getAttribute('data-category') === categoryId) {
-                        btn.classList.add('active');
-                        btn.setAttribute('aria-current', 'true');
-                    } else {
-                        btn.setAttribute('aria-current', 'false');
-                    }
-                });
-                
-                // Mettre à jour les sections
-                categorySections.forEach(section => {
-                    section.classList.remove('active');
-                    if (section.id === categoryId) {
-                        section.classList.add('active');
-                        
-                        // Défilement doux sur mobile
-                        if (window.innerWidth <= 768) {
-                            setTimeout(() => {
-                                window.scrollTo({
-                                    top: section.offsetTop - 80,
-                                    behavior: 'smooth'
-                                });
-                            }, 50);
-                        }
-                    }
-                });
-                
-                // Sauvegarder l'état
-                saveState('currentCategory', categoryId);
-                
-                // Afficher un message
-                showStatusMessage(`Affichage des projets ${getCategoryName(categoryId)}`);
-                
-                // Mettre à jour la configuration
-                config.currentCategory = categoryId;
-            }
-
-            // Obtenir le nom d'une catégorie
-            function getCategoryName(categoryId) {
-                const names = {
-                    'education': 'Éducation',
-                    'housing': 'Logement',
-                    'commerce': 'Commerce',
-                    'finance': 'Finance'
+        // Gestion de l'état
+        function saveState() {
+            try {
+                const state = {
+                    currentCategory: STATE.currentCategory,
+                    lastVisit: new Date().toISOString()
                 };
-                return names[categoryId] || categoryId;
+                localStorage.setItem(CONFIG.storageKey, JSON.stringify(state));
+            } catch (e) {
+                // Fallback pour mode privé
+                console.warn('Impossible d\'enregistrer l\'état');
             }
+        }
 
-            // Animations
-            function setupAnimations() {
-                if (!config.animationsEnabled) return;
-
-                // Animation des cartes au scroll
-                if ('IntersectionObserver' in window) {
-                    const observerOptions = {
-                        threshold: 0.05,
-                        rootMargin: '0px 0px -50px 0px'
-                    };
-                    
-                    const observer = new IntersectionObserver(function(entries) {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                requestAnimationFrame(() => {
-                                    entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
-                                    entry.target.style.animationPlayState = 'running';
-                                });
-                            }
-                        });
-                    }, observerOptions);
-                    
-                    projectCards.forEach((card, index) => {
-                        card.style.animation = 'cardAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
-                        card.style.animationPlayState = 'paused';
-                        card.style.animationDelay = `${index * 0.05}s`;
-                        observer.observe(card);
-                    });
+        function restoreState() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(CONFIG.storageKey));
+                if (saved && saved.currentCategory) {
+                    switchCategory(saved.currentCategory);
                 }
+            } catch (e) {
+                // Utiliser les valeurs par défaut
+                switchCategory('education');
             }
+        }
 
-            // Écouteurs d'événements
-            function setupEventListeners() {
-                // Feedback tactile pour les liens
-                document.querySelectorAll('.project-link, .footer-links a').forEach(link => {
-                    link.addEventListener('touchstart', function() {
-                        this.style.transform = 'scale(0.97)';
-                    });
-                    
-                    link.addEventListener('touchend', function() {
-                        setTimeout(() => {
-                            this.style.transform = '';
-                        }, 150);
-                    });
-                });
+        // Messages d'état
+        function showStatusMessage(message, duration = 3000) {
+            if (!DOM.statusMessage) return;
+            
+            DOM.statusMessage.textContent = message;
+            DOM.statusMessage.classList.add('show');
+            
+            clearTimeout(DOM.statusMessage.timeout);
+            DOM.statusMessage.timeout = setTimeout(() => {
+                DOM.statusMessage.classList.remove('show');
+            }, duration);
+        }
 
-                // Gestion du redimensionnement
-                window.addEventListener('resize', debounce(adjustLayout, 250));
-                
-                // Gestion de l'orientation
-                window.addEventListener('orientationchange', function() {
-                    setTimeout(adjustLayout, 300);
-                });
+        function showWelcomeMessage() {
+            setTimeout(() => {
+                showStatusMessage('🚀 Bienvenue sur le Portefeuille ESODI !');
+            }, 1000);
+        }
 
-                // Prévenir le zoom sur iOS/Android
-                document.addEventListener('touchmove', function(e) {
-                    if (e.scale !== 1) {
-                        e.preventDefault();
-                    }
-                }, { passive: false });
-
-                // Prévenir le double-tap zoom
-                let lastTouchEnd = 0;
-                document.addEventListener('touchend', function(event) {
-                    const now = Date.now();
-                    if (now - lastTouchEnd <= 300) {
-                        event.preventDefault();
-                    }
-                    lastTouchEnd = now;
-                }, false);
-            }
-
-            // Ajuster le layout
-            function adjustLayout() {
-                // Ajuster le padding safe area si nécessaire
-                document.documentElement.style.setProperty('--safe-area-inset-top', 'env(safe-area-inset-top)');
-                document.documentElement.style.setProperty('--safe-area-inset-bottom', 'env(safe-area-inset-bottom)');
-                
-                // Ajuster la position du bouton retour sur mobile
-                if (window.innerWidth <= 480) {
-                    backButton.style.top = `max(0.6rem, var(--safe-area-inset-top))`;
-                    backButton.style.left = `max(0.6rem, var(--safe-area-inset-left))`;
-                } else {
-                    backButton.style.top = `max(1rem, var(--safe-area-inset-top))`;
-                    backButton.style.left = `max(1rem, var(--safe-area-inset-left))`;
-                }
-            }
-
-            // Gestion de l'état
-            function saveState(key, value) {
-                try {
-                    const state = JSON.parse(localStorage.getItem(config.storageKey)) || {};
-                    state[key] = value;
-                    localStorage.setItem(config.storageKey, JSON.stringify(state));
-                } catch (e) {
-                    console.warn('LocalStorage non disponible');
-                }
-            }
-
-            function restoreSavedState() {
-                try {
-                    const savedState = JSON.parse(localStorage.getItem(config.storageKey));
-                    if (savedState && savedState.currentCategory) {
-                        switchCategory(savedState.currentCategory);
-                    }
-                } catch (e) {
-                    // Utiliser la catégorie par défaut
-                    switchCategory('education');
-                }
-            }
-
-            // Messages d'état
-            function showStatusMessage(message, duration = 3000) {
-                if (!statusMessage) return;
-                
-                statusMessage.textContent = message;
-                statusMessage.classList.add('show');
-                
-                setTimeout(() => {
-                    statusMessage.classList.remove('show');
-                }, duration);
-            }
-
-            function showWelcomeMessage() {
-                setTimeout(() => {
-                    showStatusMessage('👋 Bienvenue sur le Portefeuille ESODI !');
-                }, 1000);
-            }
-
-            // Scroll vers le haut
-            function setupScrollToTop() {
-                scrollToTopLinks.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        if (this.getAttribute('href') === '#education') {
-                            e.preventDefault();
-                            window.scrollTo({
-                                top: 0,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-            }
-
-            // Utilitaires
-            function debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
+        // Utilitaires
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
                     clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
+                    func(...args);
                 };
-            }
-
-            // Détection Android pour optimisations spécifiques
-            const isAndroid = /Android/i.test(navigator.userAgent);
-            if (isAndroid) {
-                document.body.classList.add('android-device');
-                
-                // Optimisations supplémentaires pour Android
-                document.querySelectorAll('a').forEach(a => {
-                    a.style.webkitTapHighlightColor = 'rgba(79, 70, 229, 0.3)';
-                });
-            }
-
-            // Détection iOS
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            if (isIOS) {
-                document.body.classList.add('ios-device');
-            }
-
-            // API publique
-            window.ESODI_PORTFOLIO = {
-                switchCategory: switchCategory,
-                showMessage: showStatusMessage,
-                getCurrentCategory: () => config.currentCategory,
-                version: '2.1.0'
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
             };
+        }
 
-            // Initialisation finale
-            adjustLayout();
-            console.log('Portefeuille ESODI initialisé avec succès 🚀');
-        });
+        // API publique
+        window.ESODI = {
+            switchCategory,
+            showMessage: showStatusMessage,
+            getCurrentCategory: () => STATE.currentCategory,
+            getDeviceInfo: () => ({
+                isIOS: CONFIG.isIOS,
+                isAndroid: CONFIG.isAndroid,
+                isTouch: CONFIG.touchSupport,
+                screenWidth: window.innerWidth,
+                screenHeight: window.innerHeight
+            }),
+            version: '2.0.0'
+        };
+
+        // Initialisation finale
+        adjustLayout();
+        console.log('ESODI Portfolio prêt !');
     </script>
 </body>
 </html>
